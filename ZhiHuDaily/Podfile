@@ -1,0 +1,19 @@
+platform :ios, '9.0'
+use_frameworks!
+target 'ZhiHuDaily' do
+
+
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Moya/RxSwift'
+  pod 'RxDataSources'
+
+  pod 'SwiftyJSON'
+  pod 'SwifterSwift'
+  pod 'Kingfisher'	
+
+  pod 'Then'
+  pod 'SwiftDate'
+
+  pod 'RTRootNavigationController'
+end

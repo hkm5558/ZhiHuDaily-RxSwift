@@ -1,0 +1,68 @@
+PODS:
+  - Alamofire (4.5.1)
+  - Differentiator (3.0.1)
+  - Kingfisher (4.2.0)
+  - Moya/Core (10.0.0):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (10.0.0):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - Result (3.2.4)
+  - RTRootNavigationController (0.6.3):
+    - RTRootNavigationController/Core (= 0.6.3)
+  - RTRootNavigationController/Core (0.6.3)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.1):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
+  - SwiftDate (4.4.1)
+  - SwifterSwift (4.0.1):
+    - SwifterSwift/AppKit (= 4.0.1)
+    - SwifterSwift/CoreGraphics (= 4.0.1)
+    - SwifterSwift/CoreLocation (= 4.0.1)
+    - SwifterSwift/Foundation (= 4.0.1)
+    - SwifterSwift/SwiftStdlib (= 4.0.1)
+    - SwifterSwift/UIKit (= 4.0.1)
+  - SwifterSwift/AppKit (4.0.1)
+  - SwifterSwift/CoreGraphics (4.0.1)
+  - SwifterSwift/CoreLocation (4.0.1)
+  - SwifterSwift/Foundation (4.0.1)
+  - SwifterSwift/SwiftStdlib (4.0.1)
+  - SwifterSwift/UIKit (4.0.1)
+  - SwiftyJSON (3.1.4)
+  - Then (2.2.0)
+
+DEPENDENCIES:
+  - Kingfisher
+  - Moya/RxSwift
+  - RTRootNavigationController
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - SwiftDate
+  - SwifterSwift
+  - SwiftyJSON
+  - Then
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Differentiator: ffe513ce1ea4e7198b89fac94d6e281c673055a9
+  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  Moya: adb58b0f4e58430db43cc6e2f6ebab1836501186
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RTRootNavigationController: 09e3a113feecf21c194a83ad6755f5f319723c54
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxDataSources: 098b7e62b6316313b14d6bf594e3f4f4f62a238a
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+  SwiftDate: a70a534d4feed03b2a2b575e36bef82dc2286a8d
+  SwifterSwift: 5f406a5f831343312d6d5b34282b57ef3f52c40b
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Then: 823f9813e1d4d0a814a5ba15e9c9d33ec7aca631
+
+PODFILE CHECKSUM: c5d23f04e0f9034554b0d76af31f71a7bbe88eb2
+
+COCOAPODS: 1.3.1
