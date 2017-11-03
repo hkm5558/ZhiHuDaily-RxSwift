@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol ViewModelProtocol {
+    associatedtype VmInput
+    associatedtype VmOutput
+    
+    func transform(input: VmInput) -> VmOutput
+}

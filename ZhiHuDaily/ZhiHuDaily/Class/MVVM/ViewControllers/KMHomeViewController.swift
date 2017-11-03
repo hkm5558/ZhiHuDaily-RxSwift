@@ -7,13 +7,22 @@
 //
 
 import UIKit
-
+import NSObject_Rx
 class KMHomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        fetchStories().subscribe(onNext: { (stories) in
+            Toast.success(with: "请求成功")
+            log.debug("\(stories)")
+        }, onError: { (error) in
+            log.debug("\(error)")
+        }).disposed(by: rx.disposeBag)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

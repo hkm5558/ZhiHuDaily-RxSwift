@@ -22,6 +22,14 @@
 		183C3CFE1FAB2190006A8F39 /* KMConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CFD1FAB2190006A8F39 /* KMConst.swift */; };
 		183C3D001FAB21B4006A8F39 /* KMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CFF1FAB21B4006A8F39 /* KMProtocol.swift */; };
 		183C3D031FAB260B006A8F39 /* AppDelegate+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3D021FAB260B006A8F39 /* AppDelegate+Config.swift */; };
+		1859E8B91FAC49CB005835B0 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8B81FAC49CB005835B0 /* UITableView+Extension.swift */; };
+		1859E8BB1FAC4A1A005835B0 /* KMThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8BA1FAC4A1A005835B0 /* KMThemeCell.swift */; };
+		1859E8BD1FAC4E76005835B0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8BC1FAC4E76005835B0 /* API.swift */; };
+		1859E8BF1FAC50CD005835B0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8BE1FAC50CD005835B0 /* Network.swift */; };
+		1859E8C11FAC5F86005835B0 /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C01FAC5F86005835B0 /* Response+ObjectMapper.swift */; };
+		1859E8C31FAC6019005835B0 /* ZhiHuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C21FAC6019005835B0 /* ZhiHuModel.swift */; };
+		1859E8C71FAC7095005835B0 /* KMToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C61FAC7095005835B0 /* KMToast.swift */; };
+		1859E8C91FAC77E0005835B0 /* KMHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */; };
 		FBF817F70C6F6787C4B71D2C /* Pods_ZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF7D07C358497748F333FC5 /* Pods_ZhiHuDaily.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +73,14 @@
 		183C3CFD1FAB2190006A8F39 /* KMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMConst.swift; sourceTree = "<group>"; };
 		183C3CFF1FAB21B4006A8F39 /* KMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMProtocol.swift; sourceTree = "<group>"; };
 		183C3D021FAB260B006A8F39 /* AppDelegate+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Config.swift"; sourceTree = "<group>"; };
+		1859E8B81FAC49CB005835B0 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		1859E8BA1FAC4A1A005835B0 /* KMThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMThemeCell.swift; sourceTree = "<group>"; };
+		1859E8BC1FAC4E76005835B0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1859E8BE1FAC50CD005835B0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		1859E8C01FAC5F86005835B0 /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
+		1859E8C21FAC6019005835B0 /* ZhiHuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhiHuModel.swift; sourceTree = "<group>"; };
+		1859E8C61FAC7095005835B0 /* KMToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMToast.swift; sourceTree = "<group>"; };
+		1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMHomeViewModel.swift; sourceTree = "<group>"; };
 		981A96EB5DD14DD5A18B1296 /* Pods-ZhiHuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDaily/Pods-ZhiHuDaily.release.xcconfig"; sourceTree = "<group>"; };
 		BAF7D07C358497748F333FC5 /* Pods_ZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,6 +175,7 @@
 		183C3CF01FAB167D006A8F39 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				1859E8B71FAC49AD005835B0 /* Extenstion */,
 				183C3CF71FAB1714006A8F39 /* KMStoryboard */,
 				183C3CF21FAB16A6006A8F39 /* MVVM */,
 				183C3CFA1FAB2120006A8F39 /* Other */,
@@ -200,6 +217,7 @@
 		183C3CF41FAB16C6006A8F39 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1859E8C21FAC6019005835B0 /* ZhiHuModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +225,7 @@
 		183C3CF51FAB16CC006A8F39 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -214,6 +233,7 @@
 		183C3CF61FAB16D3006A8F39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1859E8BA1FAC4A1A005835B0 /* KMThemeCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +253,7 @@
 				183C3CFB1FAB2172006A8F39 /* KMEnum.swift */,
 				183C3CFD1FAB2190006A8F39 /* KMConst.swift */,
 				183C3CFF1FAB21B4006A8F39 /* KMProtocol.swift */,
+				1859E8C61FAC7095005835B0 /* KMToast.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -240,8 +261,19 @@
 		183C3D011FAB21DD006A8F39 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1859E8BC1FAC4E76005835B0 /* API.swift */,
+				1859E8BE1FAC50CD005835B0 /* Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		1859E8B71FAC49AD005835B0 /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				1859E8B81FAC49CB005835B0 /* UITableView+Extension.swift */,
+				1859E8C01FAC5F86005835B0 /* Response+ObjectMapper.swift */,
+			);
+			path = Extenstion;
 			sourceTree = "<group>";
 		};
 		643EBCF1D2E3F11AAADD851E /* Frameworks */ = {
@@ -418,35 +450,41 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ZhiHuDaily/Pods-ZhiHuDaily-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/RTRootNavigationController/RTRootNavigationController.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RTRootNavigationController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,14 +532,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1859E8C91FAC77E0005835B0 /* KMHomeViewModel.swift in Sources */,
+				1859E8BF1FAC50CD005835B0 /* Network.swift in Sources */,
 				183C3CFC1FAB2172006A8F39 /* KMEnum.swift in Sources */,
 				18005A1C1FAB2C6E00F1F04D /* R.generated.swift in Sources */,
 				183C3D001FAB21B4006A8F39 /* KMProtocol.swift in Sources */,
 				183C3CC41FAAFC24006A8F39 /* ViewController.swift in Sources */,
 				183C3CC21FAAFC24006A8F39 /* AppDelegate.swift in Sources */,
 				18005A201FAB2D2300F1F04D /* KMHomeViewController.swift in Sources */,
+				1859E8BB1FAC4A1A005835B0 /* KMThemeCell.swift in Sources */,
 				18005A221FAB2D4E00F1F04D /* KMMenuViewController.swift in Sources */,
+				1859E8B91FAC49CB005835B0 /* UITableView+Extension.swift in Sources */,
 				183C3D031FAB260B006A8F39 /* AppDelegate+Config.swift in Sources */,
+				1859E8C71FAC7095005835B0 /* KMToast.swift in Sources */,
+				1859E8BD1FAC4E76005835B0 /* API.swift in Sources */,
+				1859E8C11FAC5F86005835B0 /* Response+ObjectMapper.swift in Sources */,
+				1859E8C31FAC6019005835B0 /* ZhiHuModel.swift in Sources */,
 				183C3CFE1FAB2190006A8F39 /* KMConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,15 +7,19 @@ target 'ZhiHuDaily' do
   pod 'RxCocoa'
   pod 'Moya/RxSwift'
   pod 'RxDataSources'
+  pod 'NSObject+Rx'
 
-  pod 'SwiftyJSON'
+  pod 'ObjectMapper'
   pod 'SwifterSwift'
   pod 'Kingfisher'	
+
+  pod 'SwiftyBeaver'
 
   pod 'Then'
   pod 'SwiftDate'
 
   pod 'R.swift'
   
-  pod 'RTRootNavigationController'
+  pod 'SlideMenuControllerSwift'
+  pod 'CFNotify'
 end
