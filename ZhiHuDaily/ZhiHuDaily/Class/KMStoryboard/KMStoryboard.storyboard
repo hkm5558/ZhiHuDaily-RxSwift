@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root Navigation Controller-->
+        <scene sceneID="88h-aO-vxl">
+            <objects>
+                <navigationController id="f8s-A3-Nzt" customClass="RTRootNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k8V-46-T42">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aYa-rT-O0X" kind="relationship" relationship="rootViewController" id="8qq-Zs-2zL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y0Y-MH-EOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="-75"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="HXc-8Z-Rzf">
+            <objects>
+                <viewController storyboardIdentifier="KMMenuViewController" id="ETj-yn-ojs" customClass="KMMenuViewController" customModule="ZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z3m-u8-BXI">
+                        <rect key="frame" x="0.0" y="0.0" width="225" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.19215686269999999" green="0.53333333329999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="GKd-m9-g0K"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="225" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3b9-Kx-nWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-327" y="636"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="zec-d1-gPV">
+            <objects>
+                <viewController storyboardIdentifier="KMHomeViewController" id="aYa-rT-O0X" customClass="KMHomeViewController" customModule="ZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bwg-OX-aUi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="imT-zp-Ehm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rNS-ox-pip"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3e-3O-Bgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="636"/>
+        </scene>
+    </scenes>
+</document>

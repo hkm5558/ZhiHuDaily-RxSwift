@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18005A1C1FAB2C6E00F1F04D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18005A1B1FAB2C6E00F1F04D /* R.generated.swift */; };
+		18005A201FAB2D2300F1F04D /* KMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18005A1F1FAB2D2300F1F04D /* KMHomeViewController.swift */; };
+		18005A221FAB2D4E00F1F04D /* KMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18005A211FAB2D4E00F1F04D /* KMMenuViewController.swift */; };
 		183C3CC21FAAFC24006A8F39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CC11FAAFC24006A8F39 /* AppDelegate.swift */; };
 		183C3CC41FAAFC24006A8F39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CC31FAAFC24006A8F39 /* ViewController.swift */; };
 		183C3CC71FAAFC24006A8F39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183C3CC51FAAFC24006A8F39 /* Main.storyboard */; };
@@ -14,6 +17,11 @@
 		183C3CCC1FAAFC24006A8F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183C3CCA1FAAFC24006A8F39 /* LaunchScreen.storyboard */; };
 		183C3CD71FAAFC24006A8F39 /* ZhiHuDailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CD61FAAFC24006A8F39 /* ZhiHuDailyTests.swift */; };
 		183C3CE21FAAFC25006A8F39 /* ZhiHuDailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CE11FAAFC25006A8F39 /* ZhiHuDailyUITests.swift */; };
+		183C3CF91FAB1756006A8F39 /* KMStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183C3CF81FAB1756006A8F39 /* KMStoryboard.storyboard */; };
+		183C3CFC1FAB2172006A8F39 /* KMEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CFB1FAB2172006A8F39 /* KMEnum.swift */; };
+		183C3CFE1FAB2190006A8F39 /* KMConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CFD1FAB2190006A8F39 /* KMConst.swift */; };
+		183C3D001FAB21B4006A8F39 /* KMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3CFF1FAB21B4006A8F39 /* KMProtocol.swift */; };
+		183C3D031FAB260B006A8F39 /* AppDelegate+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C3D021FAB260B006A8F39 /* AppDelegate+Config.swift */; };
 		FBF817F70C6F6787C4B71D2C /* Pods_ZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF7D07C358497748F333FC5 /* Pods_ZhiHuDaily.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		0B01ED73AD5BAC6F185C0892 /* Pods-ZhiHuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDaily/Pods-ZhiHuDaily.debug.xcconfig"; sourceTree = "<group>"; };
+		18005A1B1FAB2C6E00F1F04D /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		18005A1F1FAB2D2300F1F04D /* KMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMHomeViewController.swift; sourceTree = "<group>"; };
+		18005A211FAB2D4E00F1F04D /* KMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMMenuViewController.swift; sourceTree = "<group>"; };
 		183C3CBE1FAAFC24006A8F39 /* ZhiHuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183C3CC11FAAFC24006A8F39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		183C3CC31FAAFC24006A8F39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +60,11 @@
 		183C3CDD1FAAFC25006A8F39 /* ZhiHuDailyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhiHuDailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183C3CE11FAAFC25006A8F39 /* ZhiHuDailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhiHuDailyUITests.swift; sourceTree = "<group>"; };
 		183C3CE31FAAFC25006A8F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183C3CF81FAB1756006A8F39 /* KMStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KMStoryboard.storyboard; sourceTree = "<group>"; };
+		183C3CFB1FAB2172006A8F39 /* KMEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMEnum.swift; sourceTree = "<group>"; };
+		183C3CFD1FAB2190006A8F39 /* KMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMConst.swift; sourceTree = "<group>"; };
+		183C3CFF1FAB21B4006A8F39 /* KMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMProtocol.swift; sourceTree = "<group>"; };
+		183C3D021FAB260B006A8F39 /* AppDelegate+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Config.swift"; sourceTree = "<group>"; };
 		981A96EB5DD14DD5A18B1296 /* Pods-ZhiHuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDaily/Pods-ZhiHuDaily.release.xcconfig"; sourceTree = "<group>"; };
 		BAF7D07C358497748F333FC5 /* Pods_ZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,12 +120,8 @@
 		183C3CC01FAAFC24006A8F39 /* ZhiHuDaily */ = {
 			isa = PBXGroup;
 			children = (
-				183C3CC11FAAFC24006A8F39 /* AppDelegate.swift */,
-				183C3CC31FAAFC24006A8F39 /* ViewController.swift */,
-				183C3CC51FAAFC24006A8F39 /* Main.storyboard */,
-				183C3CC81FAAFC24006A8F39 /* Assets.xcassets */,
-				183C3CCA1FAAFC24006A8F39 /* LaunchScreen.storyboard */,
-				183C3CCD1FAAFC24006A8F39 /* Info.plist */,
+				183C3CF01FAB167D006A8F39 /* Class */,
+				183C3CEF1FAB166E006A8F39 /* Assets */,
 			);
 			path = ZhiHuDaily;
 			sourceTree = "<group>";
@@ -130,6 +142,106 @@
 				183C3CE31FAAFC25006A8F39 /* Info.plist */,
 			);
 			path = ZhiHuDailyUITests;
+			sourceTree = "<group>";
+		};
+		183C3CEF1FAB166E006A8F39 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				183C3CC31FAAFC24006A8F39 /* ViewController.swift */,
+				183C3CC51FAAFC24006A8F39 /* Main.storyboard */,
+				183C3CC81FAAFC24006A8F39 /* Assets.xcassets */,
+				183C3CCA1FAAFC24006A8F39 /* LaunchScreen.storyboard */,
+				183C3CCD1FAAFC24006A8F39 /* Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		183C3CF01FAB167D006A8F39 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				183C3CF71FAB1714006A8F39 /* KMStoryboard */,
+				183C3CF21FAB16A6006A8F39 /* MVVM */,
+				183C3CFA1FAB2120006A8F39 /* Other */,
+				183C3D011FAB21DD006A8F39 /* Network */,
+				183C3CF11FAB168C006A8F39 /* AppDelegate */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		183C3CF11FAB168C006A8F39 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				183C3CC11FAAFC24006A8F39 /* AppDelegate.swift */,
+				183C3D021FAB260B006A8F39 /* AppDelegate+Config.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		183C3CF21FAB16A6006A8F39 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				183C3CF31FAB16B0006A8F39 /* ViewControllers */,
+				183C3CF61FAB16D3006A8F39 /* Views */,
+				183C3CF51FAB16CC006A8F39 /* ViewModels */,
+				183C3CF41FAB16C6006A8F39 /* Models */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		183C3CF31FAB16B0006A8F39 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18005A1F1FAB2D2300F1F04D /* KMHomeViewController.swift */,
+				18005A211FAB2D4E00F1F04D /* KMMenuViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		183C3CF41FAB16C6006A8F39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		183C3CF51FAB16CC006A8F39 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		183C3CF61FAB16D3006A8F39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		183C3CF71FAB1714006A8F39 /* KMStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				183C3CF81FAB1756006A8F39 /* KMStoryboard.storyboard */,
+			);
+			path = KMStoryboard;
+			sourceTree = "<group>";
+		};
+		183C3CFA1FAB2120006A8F39 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				18005A1B1FAB2C6E00F1F04D /* R.generated.swift */,
+				183C3CFB1FAB2172006A8F39 /* KMEnum.swift */,
+				183C3CFD1FAB2190006A8F39 /* KMConst.swift */,
+				183C3CFF1FAB21B4006A8F39 /* KMProtocol.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		183C3D011FAB21DD006A8F39 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		643EBCF1D2E3F11AAADD851E /* Frameworks */ = {
@@ -157,6 +269,7 @@
 			buildConfigurationList = 183C3CE61FAAFC25006A8F39 /* Build configuration list for PBXNativeTarget "ZhiHuDaily" */;
 			buildPhases = (
 				3A73155C402986D43A8AC975 /* [CP] Check Pods Manifest.lock */,
+				18005A191FAB2A6600F1F04D /* ShellScript */,
 				183C3CBA1FAAFC24006A8F39 /* Sources */,
 				183C3CBB1FAAFC24006A8F39 /* Frameworks */,
 				183C3CBC1FAAFC24006A8F39 /* Resources */,
@@ -214,6 +327,7 @@
 		183C3CB61FAAFC24006A8F39 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = KM;
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = KM;
@@ -262,6 +376,7 @@
 				183C3CCC1FAAFC24006A8F39 /* LaunchScreen.storyboard in Resources */,
 				183C3CC91FAAFC24006A8F39 /* Assets.xcassets in Resources */,
 				183C3CC71FAAFC24006A8F39 /* Main.storyboard in Resources */,
+				183C3CF91FAB1756006A8F39 /* KMStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +397,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18005A191FAB2A6600F1F04D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
 		1CE60AA080C6BE054C463F15 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +421,7 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/RTRootNavigationController/RTRootNavigationController.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -309,6 +438,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RTRootNavigationController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -364,8 +494,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183C3CFC1FAB2172006A8F39 /* KMEnum.swift in Sources */,
+				18005A1C1FAB2C6E00F1F04D /* R.generated.swift in Sources */,
+				183C3D001FAB21B4006A8F39 /* KMProtocol.swift in Sources */,
 				183C3CC41FAAFC24006A8F39 /* ViewController.swift in Sources */,
 				183C3CC21FAAFC24006A8F39 /* AppDelegate.swift in Sources */,
+				18005A201FAB2D2300F1F04D /* KMHomeViewController.swift in Sources */,
+				18005A221FAB2D4E00F1F04D /* KMMenuViewController.swift in Sources */,
+				183C3D031FAB260B006A8F39 /* AppDelegate+Config.swift in Sources */,
+				183C3CFE1FAB2190006A8F39 /* KMConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +605,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -519,7 +656,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -534,7 +671,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AGMG4744FS;
-				INFOPLIST_FILE = ZhiHuDaily/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ZhiHuDaily/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.km.ZhiHuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,7 +687,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AGMG4744FS;
-				INFOPLIST_FILE = ZhiHuDaily/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ZhiHuDaily/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.km.ZhiHuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";

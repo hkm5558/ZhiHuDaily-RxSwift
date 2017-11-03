@@ -15,5 +15,7 @@ target 'ZhiHuDaily' do
   pod 'Then'
   pod 'SwiftDate'
 
+  pod 'R.swift'
+  
   pod 'RTRootNavigationController'
 end
