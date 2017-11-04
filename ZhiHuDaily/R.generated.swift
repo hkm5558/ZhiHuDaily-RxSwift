@@ -31,8 +31,34 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 18 images.
+  /// This `R.image` struct is generated, and contains static references to 31 images.
   struct image {
+    /// Image `Field_Button_Highlight_Bg`.
+    static let field_Button_Highlight_Bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "Field_Button_Highlight_Bg")
+    /// Image `Field_Mask_Bg`.
+    static let field_Mask_Bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "Field_Mask_Bg")
+    /// Image `Guide_Txt1`.
+    static let guide_Txt1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Guide_Txt1")
+    /// Image `Guide_Txt2`.
+    static let guide_Txt2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Guide_Txt2")
+    /// Image `Guide_Txt3`.
+    static let guide_Txt3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Guide_Txt3")
+    /// Image `Home_Icon_Highlight`.
+    static let home_Icon_Highlight = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Icon_Highlight")
+    /// Image `Home_Icon`.
+    static let home_Icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Icon")
+    /// Image `Home_Image_Mask_Plus`.
+    static let home_Image_Mask_Plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Image_Mask_Plus")
+    /// Image `Home_Image_Mask`.
+    static let home_Image_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Image_Mask")
+    /// Image `Home_Morepic`.
+    static let home_Morepic = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Morepic")
+    /// Image `Home_Split`.
+    static let home_Split = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Split")
+    /// Image `Home_Topmask`.
+    static let home_Topmask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Topmask")
+    /// Image `Image_Preview`.
+    static let image_Preview = Rswift.ImageResource(bundle: R.hostingBundle, name: "Image_Preview")
     /// Image `Menu_Avatar_Mask`.
     static let menu_Avatar_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Avatar_Mask")
     /// Image `Menu_Avatar`.
@@ -69,6 +95,71 @@ struct R: Rswift.Validatable {
     static let menu_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Mask")
     /// Image `Menu_New`.
     static let menu_New = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_New")
+    
+    /// `UIImage(named: "Field_Button_Highlight_Bg", bundle: ..., traitCollection: ...)`
+    static func field_Button_Highlight_Bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.field_Button_Highlight_Bg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Field_Mask_Bg", bundle: ..., traitCollection: ...)`
+    static func field_Mask_Bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.field_Mask_Bg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Guide_Txt1", bundle: ..., traitCollection: ...)`
+    static func guide_Txt1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.guide_Txt1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Guide_Txt2", bundle: ..., traitCollection: ...)`
+    static func guide_Txt2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.guide_Txt2, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Guide_Txt3", bundle: ..., traitCollection: ...)`
+    static func guide_Txt3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.guide_Txt3, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Home_Icon", bundle: ..., traitCollection: ...)`
+    static func home_Icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_Icon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Home_Icon_Highlight", bundle: ..., traitCollection: ...)`
+    static func home_Icon_Highlight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_Icon_Highlight, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Home_Image_Mask", bundle: ..., traitCollection: ...)`
+    static func home_Image_Mask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_Image_Mask, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Home_Image_Mask_Plus", bundle: ..., traitCollection: ...)`
+    static func home_Image_Mask_Plus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_Image_Mask_Plus, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Home_Morepic", bundle: ..., traitCollection: ...)`
+    static func home_Morepic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_Morepic, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Home_Split", bundle: ..., traitCollection: ...)`
+    static func home_Split(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_Split, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Home_Topmask", bundle: ..., traitCollection: ...)`
+    static func home_Topmask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_Topmask, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Image_Preview", bundle: ..., traitCollection: ...)`
+    static func image_Preview(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.image_Preview, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "Menu_Avatar", bundle: ..., traitCollection: ...)`
     static func menu_Avatar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -168,8 +259,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `KMBannerCell`.
+    static let kmBannerCell: Rswift.ReuseIdentifier<KMBannerCell> = Rswift.ReuseIdentifier(identifier: "KMBannerCell")
+    
     fileprivate init() {}
   }
   
@@ -252,6 +346,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "Field_Mask_Bg") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Field_Mask_Bg' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Home_Image_Mask") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Image_Mask' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Avatar") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Avatar' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Icon_Setting") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Icon_Setting' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Enter") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Enter' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }

@@ -30,6 +30,10 @@
 		1859E8C31FAC6019005835B0 /* ZhiHuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C21FAC6019005835B0 /* ZhiHuModel.swift */; };
 		1859E8C71FAC7095005835B0 /* KMToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C61FAC7095005835B0 /* KMToast.swift */; };
 		1859E8C91FAC77E0005835B0 /* KMHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */; };
+		186A4BDF1FAD58F90039AF9B /* KMRefreshTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A4BDE1FAD58F90039AF9B /* KMRefreshTitleView.swift */; };
+		186A4BE11FAD6D380039AF9B /* KMBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A4BE01FAD6D380039AF9B /* KMBannerView.swift */; };
+		186A4BE31FAD6E1D0039AF9B /* KMBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A4BE21FAD6E1D0039AF9B /* KMBannerCell.swift */; };
+		186A4BE51FADC03E0039AF9B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A4BE41FADC03E0039AF9B /* UIViewController+Extension.swift */; };
 		FBF817F70C6F6787C4B71D2C /* Pods_ZhiHuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF7D07C358497748F333FC5 /* Pods_ZhiHuDaily.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +85,10 @@
 		1859E8C21FAC6019005835B0 /* ZhiHuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhiHuModel.swift; sourceTree = "<group>"; };
 		1859E8C61FAC7095005835B0 /* KMToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMToast.swift; sourceTree = "<group>"; };
 		1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMHomeViewModel.swift; sourceTree = "<group>"; };
+		186A4BDE1FAD58F90039AF9B /* KMRefreshTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMRefreshTitleView.swift; sourceTree = "<group>"; };
+		186A4BE01FAD6D380039AF9B /* KMBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBannerView.swift; sourceTree = "<group>"; };
+		186A4BE21FAD6E1D0039AF9B /* KMBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBannerCell.swift; sourceTree = "<group>"; };
+		186A4BE41FADC03E0039AF9B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		981A96EB5DD14DD5A18B1296 /* Pods-ZhiHuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiHuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiHuDaily/Pods-ZhiHuDaily.release.xcconfig"; sourceTree = "<group>"; };
 		BAF7D07C358497748F333FC5 /* Pods_ZhiHuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiHuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -234,6 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				1859E8BA1FAC4A1A005835B0 /* KMThemeCell.swift */,
+				186A4BDE1FAD58F90039AF9B /* KMRefreshTitleView.swift */,
+				186A4BE01FAD6D380039AF9B /* KMBannerView.swift */,
+				186A4BE21FAD6E1D0039AF9B /* KMBannerCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +283,7 @@
 			children = (
 				1859E8B81FAC49CB005835B0 /* UITableView+Extension.swift */,
 				1859E8C01FAC5F86005835B0 /* Response+ObjectMapper.swift */,
+				186A4BE41FADC03E0039AF9B /* UIViewController+Extension.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -533,20 +545,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1859E8C91FAC77E0005835B0 /* KMHomeViewModel.swift in Sources */,
+				186A4BDF1FAD58F90039AF9B /* KMRefreshTitleView.swift in Sources */,
 				1859E8BF1FAC50CD005835B0 /* Network.swift in Sources */,
 				183C3CFC1FAB2172006A8F39 /* KMEnum.swift in Sources */,
 				18005A1C1FAB2C6E00F1F04D /* R.generated.swift in Sources */,
 				183C3D001FAB21B4006A8F39 /* KMProtocol.swift in Sources */,
 				183C3CC41FAAFC24006A8F39 /* ViewController.swift in Sources */,
 				183C3CC21FAAFC24006A8F39 /* AppDelegate.swift in Sources */,
+				186A4BE11FAD6D380039AF9B /* KMBannerView.swift in Sources */,
 				18005A201FAB2D2300F1F04D /* KMHomeViewController.swift in Sources */,
 				1859E8BB1FAC4A1A005835B0 /* KMThemeCell.swift in Sources */,
 				18005A221FAB2D4E00F1F04D /* KMMenuViewController.swift in Sources */,
 				1859E8B91FAC49CB005835B0 /* UITableView+Extension.swift in Sources */,
 				183C3D031FAB260B006A8F39 /* AppDelegate+Config.swift in Sources */,
 				1859E8C71FAC7095005835B0 /* KMToast.swift in Sources */,
+				186A4BE31FAD6E1D0039AF9B /* KMBannerCell.swift in Sources */,
 				1859E8BD1FAC4E76005835B0 /* API.swift in Sources */,
 				1859E8C11FAC5F86005835B0 /* Response+ObjectMapper.swift in Sources */,
+				186A4BE51FADC03E0039AF9B /* UIViewController+Extension.swift in Sources */,
 				1859E8C31FAC6019005835B0 /* ZhiHuModel.swift in Sources */,
 				183C3CFE1FAB2190006A8F39 /* KMConst.swift in Sources */,
 			);

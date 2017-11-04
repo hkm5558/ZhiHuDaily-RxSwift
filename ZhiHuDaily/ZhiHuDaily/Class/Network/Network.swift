@@ -19,21 +19,23 @@ let bag = DisposeBag()
 
 
 
-func fetchStories() -> Observable<Stories> {
-    return Observable.create({ (observer) -> Disposable in
-        kmapi.rx.request(.newsList).subscribe(onSuccess: { (response) in
-            do {
-                let stories = try response.mapObject(Stories.self)
-                observer.onNext(stories)
-                observer.onCompleted()
-            }catch{
-                Toast.show(with: "格式解析失败")
+struct Network {
+    static func fetchStories() -> Observable<Stories> {
+        return Observable.create({ (observer) -> Disposable in
+            kmapi.rx.request(.newsList).subscribe(onSuccess: { (response) in
+                do {
+                    let stories = try response.mapObject(Stories.self)
+                    observer.onNext(stories)
+                    observer.onCompleted()
+                }catch{
+                    Toast.show(with: "格式解析失败")
+                    observer.onError(error)
+                }
+            }, onError: { (error) in
                 observer.onError(error)
-            }
-        }, onError: { (error) in
-            observer.onError(error)
-        }).disposed(by: bag)
-        
-        return Disposables.create()
-    })
+            }).disposed(by: bag)
+            
+            return Disposables.create()
+        })
+    }
 }

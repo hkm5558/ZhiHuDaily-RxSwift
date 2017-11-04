@@ -24,8 +24,7 @@ extension AppDelegate {
         configTableView()
         
         initWindow()
-        
-        
+       UINavigationBar.appearance().isTranslucent = false
     }
     
     func initWindow() {
@@ -36,16 +35,17 @@ extension AppDelegate {
         SlideMenuOptions.contentViewOpacity = 0.0
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
-        SlideMenuOptions.leftBezelWidth = UIScreen.main.bounds.width
+        SlideMenuOptions.leftBezelWidth = UIScreen.main.bounds.width/4.0
         
         
         let homeVC = R.storyboard.kmStoryboard.kmHomeViewController()
-        let menuVC = R.storyboard.kmStoryboard.kmMenuViewController()
         
+        let menuVC = R.storyboard.kmStoryboard.kmMenuViewController()
+
         let homeNav = UINavigationController(rootViewController: homeVC!)
         menuVC?.home = homeNav
-        
-        
+
+
         let slideMenuVC = SlideMenuController(mainViewController: homeNav, leftMenuViewController: menuVC!)
         
         window = UIWindow.init(frame: UIScreen.main.bounds)

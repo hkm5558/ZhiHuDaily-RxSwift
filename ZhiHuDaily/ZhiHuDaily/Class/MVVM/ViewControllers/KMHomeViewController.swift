@@ -7,38 +7,113 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import NSObject_Rx
 class KMHomeViewController: UIViewController {
 
+    
+    var navBackground : UIView?
+    
+    @IBOutlet var bannerView: KMBannerView!
+    
+    @IBOutlet var pageControl: UIPageControl!
+    
+    @IBOutlet var tableView: UITableView!
+    
+    var navAlpha = Variable<CGFloat>(0.0)
+    
+    
+    let vm = KMHomeViewModel()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setup()
+    }
+}
+extension KMHomeViewController {
+    func setup() {
         
-        fetchStories().subscribe(onNext: { (stories) in
-            Toast.success(with: "请求成功")
-            log.debug("\(stories)")
-        }, onError: { (error) in
-            log.debug("\(error)")
-        }).disposed(by: rx.disposeBag)
+        avoidAutomaticDown64()
+        
+        bannerView.bannerDelegate = self
+        bindNavigation()
+        bindViewModel()
+        
+        tableView
+            .rx
+            .setDelegate(self)
+            .disposed(by: rx.disposeBag)
+        
         
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func bindNavigation() {
+        let titleView = KMRefreshTitleView.init(with: "今日热闻")
+        navigationItem.titleView = titleView
+        
+        setNavigationBackgroundColor(with: Color.themeBlue)
+        
+        navBackground = navigationController?.navigationBar.subviews.first
+       _ = navBackground?
+            .rx.observe(CGFloat.self, "alpha")
+            .observeOn(MainScheduler.asyncInstance)
+            .filter({ $0 != self.navAlpha.value })
+            .subscribe(onNext: { [unowned self] (alpha) in
+                self.navBackground?.alpha = self.navAlpha.value
+            })
+            .disposed(by: rx.disposeBag)
+        navAlpha
+            .asObservable()
+            .subscribe(onNext: { [unowned self] (alpha) in
+               self.navBackground?.alpha = alpha
+            })
+            .disposed(by: rx.disposeBag)
     }
     
+    func bindViewModel() {
+        let inputStuff = KMHomeViewModel.HomeInput()
+        let outputStuff = vm.transform(input: inputStuff)
+        
+        
+        outputStuff
+            .top_stories
+            .asObservable()
+            .filter({ $0.count != 0 })
+            .subscribe(onNext: { [unowned self] (top_stories) in
+                    var arr = top_stories
+                    arr.insert(arr.last!, at: 0)
+                    arr.append(arr[1])
+                    self.bannerView.top_stories.value = arr
+                    self.pageControl.numberOfPages = arr.count
+            })
+            .disposed(by: rx.disposeBag)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        outputStuff.loadNewDataCommand.onNext(0)
+        
     }
-    */
+    
+}
 
+extension KMHomeViewController : UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        bannerView.offsetY.value = scrollView.contentOffset.y.double
+        var alpha = scrollView.contentOffset.y / 200.0
+        alpha > 1.0 ? alpha = 1.0 : nil
+        alpha < 0.0 ? alpha = 0.0 : nil
+        navAlpha.value = alpha
+    }
+}
+
+extension KMHomeViewController : BannerDelegate {
+    func selectedItem(model: Story) {
+        log.debug("\(model)")
+    }
+    func scrollTo(index: Int) {
+        pageControl.currentPage = index
+    }
 }

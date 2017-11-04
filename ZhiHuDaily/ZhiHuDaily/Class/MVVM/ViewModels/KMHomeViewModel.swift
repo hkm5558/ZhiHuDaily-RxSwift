@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
-class KMHomeViewModel : ViewModelProtocol {
+class KMHomeViewModel : NSObject, ViewModelProtocol {
 
     
     typealias Input = HomeInput
@@ -21,8 +21,11 @@ class KMHomeViewModel : ViewModelProtocol {
     }
     
     struct HomeOutput {
-        let loadNewDataCommand = PublishSubject<Void>()
         
+        
+        let loadNewDataCommand = PublishSubject<Int>()
+        
+        let top_stories = Variable<[Story]>([])
         let section: Driver<[HomeSection]>
         init(homeSection: Driver<[HomeSection]>) {
             section = homeSection
@@ -36,6 +39,19 @@ class KMHomeViewModel : ViewModelProtocol {
         }.asDriver(onErrorJustReturn: [])
         
         let output = Output(homeSection: section)
+
+        output
+            .loadNewDataCommand
+            .flatMapLatest {_ in
+                Network.fetchStories()
+            }
+            .subscribe(onNext: { (stories) in
+                if let top_stories = stories.top_stories {
+                   output.top_stories.value = top_stories
+                }
+            })
+            .disposed(by: rx.disposeBag)
+        
         
         return output
     }
@@ -43,7 +59,7 @@ class KMHomeViewModel : ViewModelProtocol {
     
     fileprivate let _stories = Variable<[Story]>([])
     
-    init() {
-        
+    override init() {
+       super.init()
     }
 }
