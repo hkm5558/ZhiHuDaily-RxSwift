@@ -6,7 +6,6 @@ target 'ZhiHuDaily' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Moya/RxSwift'
-  pod 'RxDataSources'
   pod 'NSObject+Rx'
 
   pod 'ObjectMapper'
@@ -16,10 +15,13 @@ target 'ZhiHuDaily' do
   pod 'SwiftyBeaver'
 
   pod 'Then'
-  pod 'SwiftDate'
 
   pod 'R.swift'
   
   pod 'SlideMenuControllerSwift'
   pod 'CFNotify'
+  pod 'Closures'
+  pod 'SnapKit'
+  pod 'AttributedLib'
+  pod 'Action'
 end

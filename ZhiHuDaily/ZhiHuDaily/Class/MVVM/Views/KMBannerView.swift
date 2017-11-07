@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
 import NSObject_Rx
 import Kingfisher
 
@@ -20,15 +19,19 @@ class KMBannerView: UICollectionView {
 
     
     let top_stories = Variable([Story]())
-    let offsetY = Variable(0.0)
+    let offsetY = Variable(CGFloat.init(0))
     
     weak var bannerDelegate : BannerDelegate?
     
     override func awakeFromNib() {
         let layout = UICollectionViewFlowLayout().then {
-            $0.itemSize = CGSize(width: KScreenW, height: 200)
+            $0.itemSize = CGSize(width: KScreenW, height: Config.topStoryViewHeight)
+            $0.scrollDirection = .horizontal
+            $0.minimumInteritemSpacing = 0.0
+            $0.minimumLineSpacing = 0.0
         }
-        setCollectionViewLayout(layout, animated: false)
+        setCollectionViewLayout(layout, animated: true)
+//        layoutIfNeeded()
         contentOffset.x = KScreenW
         top_stories
             .asObservable()
@@ -40,14 +43,14 @@ class KMBannerView: UICollectionView {
         rx.setDelegate(self).disposed(by: rx.disposeBag)
         
         offsetY
-            .asObservable()
-            .subscribe(onNext: { (y) in
-                self.visibleCells.forEach({ (cell) in
-                    let cell = cell as! KMBannerCell
-                    cell.imageTop.constant = y.cgFloat <= 0 ? y.cgFloat : 0
-                    cell.imageView.frame.size.height = y.cgFloat <= 0 ? 200 - y.cgFloat : 200
-                })
+            .asDriver()
+            .drive(onNext: { (y) in
+            self.visibleCells.forEach({ (cell) in
+                let cell = cell as! KMBannerCell
+                cell.imageTop.constant = y <= 0 ? y : 0
+                cell.imageView.frame.size.height = y <= 0 ? Config.topStoryViewHeight - y : Config.topStoryViewHeight
             })
+        })
             .disposed(by: rx.disposeBag)
         
         self
@@ -69,6 +72,8 @@ extension KMBannerView : UIScrollViewDelegate {
         }else if scrollView.contentOffset.x == 0 {
             scrollView.contentOffset.x = (top_stories.value.count - 2).cgFloat * KScreenW
         }
-        bannerDelegate?.scrollTo(index: Int(scrollView.contentOffset.x / KScreenW ) - 1)
+        log.debug("\(scrollView.contentOffset.x)")
+        let index = Int(scrollView.contentOffset.x / KScreenW ) - 1
+        bannerDelegate?.scrollTo(index: index)
     }
 }

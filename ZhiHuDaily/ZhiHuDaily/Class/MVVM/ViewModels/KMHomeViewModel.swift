@@ -9,57 +9,46 @@
 import Foundation
 import RxSwift
 import RxCocoa
-class KMHomeViewModel : NSObject, ViewModelProtocol {
+import NSObject_Rx
+import Action
+class KMHomeViewModel : HasDisposeBag {
 
     
-    typealias Input = HomeInput
-    
-    typealias Output = HomeOutput
-    
-    struct HomeInput {
-        let date = Variable<String>("")
-    }
-    
-    struct HomeOutput {
-        
-        
-        let loadNewDataCommand = PublishSubject<Int>()
-        
-        let top_stories = Variable<[Story]>([])
-        let section: Driver<[HomeSection]>
-        init(homeSection: Driver<[HomeSection]>) {
-            section = homeSection
-        }
-    }
-    
-    func transform(input: KMHomeViewModel.HomeInput) -> KMHomeViewModel.HomeOutput {
-        
-        let section = _stories.asObservable().map { (stories) -> [HomeSection] in
-            return [HomeSection(items: stories)]
-        }.asDriver(onErrorJustReturn: [])
-        
-        let output = Output(homeSection: section)
+    let loadNewDataCommand = PublishSubject<Void>()
+    let loadMoreDaraCommand = PublishSubject<Void>()
 
-        output
-            .loadNewDataCommand
-            .flatMapLatest {_ in
-                Network.fetchStories()
-            }
-            .subscribe(onNext: { (stories) in
-                if let top_stories = stories.top_stories {
-                   output.top_stories.value = top_stories
+    let top_stories = Variable<[Story]>([])
+    let stories = Variable([Stories]())
+    
+    var newsDate = ""
+    
+    init() {
+        bind()
+    }
+}
+extension KMHomeViewModel {
+    func bind() {
+        loadNewDataCommand
+            .flatMapLatest({ _ in Network.fetchTodayNews() })
+            .subscribe(onNext: { [unowned self] (storiesModel) in
+                if let top_stories = storiesModel.top_stories {
+                    self.top_stories.value = top_stories
                 }
+                if let date = storiesModel.date {
+                  self.newsDate = date
+                }
+                self.stories.value = [storiesModel]
             })
-            .disposed(by: rx.disposeBag)
-        
-        
-        return output
-    }
-    
-    
-    fileprivate let _stories = Variable<[Story]>([])
-    
-    override init() {
-       super.init()
+            .disposed(by: disposeBag)
+
+        loadMoreDaraCommand
+            .flatMap { [unowned self] in Network.fetchMoreNews(with:self.newsDate) }
+            .subscribe(onNext: { [unowned self] (stories) in
+                if let date = stories.date {
+                    self.newsDate = date
+                }
+                self.stories.value.append(stories)
+            })
+            .disposed(by: disposeBag)
     }
 }

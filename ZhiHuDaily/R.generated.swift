@@ -259,10 +259,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `KMBannerCell`.
     static let kmBannerCell: Rswift.ReuseIdentifier<KMBannerCell> = Rswift.ReuseIdentifier(identifier: "KMBannerCell")
+    /// Reuse identifier `KMStoryListCell`.
+    static let kmStoryListCell: Rswift.ReuseIdentifier<KMStoryListCell> = Rswift.ReuseIdentifier(identifier: "KMStoryListCell")
     
     fileprivate init() {}
   }
@@ -350,6 +352,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Home_Image_Mask") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Image_Mask' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Avatar") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Avatar' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Icon_Setting") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Icon_Setting' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Home_Morepic") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Home_Morepic' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Enter") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Enter' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Icon_Home") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Icon_Home' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Icon_Collect") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Icon_Collect' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -235,15 +235,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Mh-9o-cH9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Mh-9o-cH9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.90196078430000004" green="0.26274509800000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="puh-mz-PXV">
+                                <view key="tableHeaderView" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="puh-mz-PXV">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U7h-QL-LLa" customClass="KMBannerView" customModule="ZhiHuDaily" customModuleProvider="target">
+                                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7h-QL-LLa" customClass="KMBannerView" customModule="ZhiHuDaily" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="fIL-eR-1a9">
@@ -264,9 +264,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_Image_Mask" translatesAutoresizingMaskIntoConstraints="NO" id="a8q-CW-2Zg">
-                                                                <rect key="frame" x="0.0" y="100" width="375" height="100"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="100" id="bO9-QR-7Zy"/>
+                                                                    <constraint firstAttribute="height" constant="200" id="bO9-QR-7Zy"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孙宏斌没想到，接手的乐视还藏着IPO造假的「王炸」" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtF-og-tjE">
@@ -312,6 +312,54 @@
                                         <constraint firstAttribute="bottom" secondItem="5gX-PY-jq4" secondAttribute="bottom" id="pp6-gx-fe6"/>
                                     </constraints>
                                 </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="KMStoryListCell" rowHeight="90" id="XLm-dC-VVz" customClass="KMStoryListCell" customModule="ZhiHuDaily" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="228" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XLm-dC-VVz" id="v6p-jY-Pme">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8g-Lr-flH">
+                                                    <rect key="frame" x="285" y="14" width="75" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="HrS-AL-iwP"/>
+                                                        <constraint firstAttribute="height" constant="60" id="Oup-2J-uoH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_Morepic" translatesAutoresizingMaskIntoConstraints="NO" id="9K7-YA-Z1X">
+                                                    <rect key="frame" x="328" y="60" width="32" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="Bw2-mo-J26"/>
+                                                        <constraint firstAttribute="height" constant="14" id="wXy-ld-yMQ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJM-XT-WgO">
+                                                    <rect key="frame" x="15" y="14" width="255" height="18"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RJM-XT-WgO" secondAttribute="bottom" constant="15" id="7lE-rj-CgS"/>
+                                                <constraint firstItem="9K7-YA-Z1X" firstAttribute="bottom" secondItem="y8g-Lr-flH" secondAttribute="bottom" id="86Z-bl-hYb"/>
+                                                <constraint firstItem="9K7-YA-Z1X" firstAttribute="trailing" secondItem="y8g-Lr-flH" secondAttribute="trailing" id="WNH-6d-6ul"/>
+                                                <constraint firstAttribute="trailing" secondItem="RJM-XT-WgO" secondAttribute="trailing" constant="105" id="ZP4-3n-8nv"/>
+                                                <constraint firstItem="y8g-Lr-flH" firstAttribute="centerY" secondItem="v6p-jY-Pme" secondAttribute="centerY" id="gpm-xD-90x"/>
+                                                <constraint firstAttribute="trailing" secondItem="y8g-Lr-flH" secondAttribute="trailing" constant="15" id="hbd-17-3KG"/>
+                                                <constraint firstItem="RJM-XT-WgO" firstAttribute="leading" secondItem="v6p-jY-Pme" secondAttribute="leading" constant="15" id="sw5-iB-4h9"/>
+                                                <constraint firstItem="RJM-XT-WgO" firstAttribute="top" secondItem="y8g-Lr-flH" secondAttribute="top" id="tYr-Vb-2tT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgView" destination="y8g-Lr-flH" id="sBI-s1-QR3"/>
+                                            <outlet property="morePicView" destination="9K7-YA-Z1X" id="BVv-h9-xHh"/>
+                                            <outlet property="titleLbl" destination="RJM-XT-WgO" id="CSY-aR-jq3"/>
+                                            <outlet property="titleRight" destination="ZP4-3n-8nv" id="ULY-IH-eR5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -336,6 +384,7 @@
     <resources>
         <image name="Field_Mask_Bg" width="320" height="220"/>
         <image name="Home_Image_Mask" width="320" height="150"/>
+        <image name="Home_Morepic" width="32" height="14"/>
         <image name="Menu_Avatar" width="35" height="35"/>
         <image name="Menu_Dark" width="22" height="22"/>
         <image name="Menu_Download" width="22" height="22"/>

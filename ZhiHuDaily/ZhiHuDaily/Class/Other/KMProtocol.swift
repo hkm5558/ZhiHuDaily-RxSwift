@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 
 
-protocol ViewModelProtocol {
-    associatedtype VmInput
-    associatedtype VmOutput
-    
-    func transform(input: VmInput) -> VmOutput
-}
 
 protocol BannerDelegate : NSObjectProtocol {
     func selectedItem(model: Story)

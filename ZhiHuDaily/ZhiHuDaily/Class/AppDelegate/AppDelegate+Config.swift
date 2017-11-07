@@ -24,7 +24,8 @@ extension AppDelegate {
         configTableView()
         
         initWindow()
-       UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().shadowImage = UIImage()
     }
     
     func initWindow() {
@@ -79,7 +80,7 @@ fileprivate extension AppDelegate {
     
     func configTableView() {
         UITableView.appearance().separatorStyle = .none
-        UITableViewCell.appearance().selectionStyle = .none
+//        UITableViewCell.appearance().selectionStyle = .none
     }
     
 }

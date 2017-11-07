@@ -8,7 +8,7 @@
 
 import Foundation
 import ObjectMapper
-import RxDataSources
+
 
 struct Stories : Mappable {
     
@@ -35,7 +35,7 @@ struct Story : Mappable {
     var id : Int?
     var ga_prefix : String?
     var title : String?
-    
+    var multipic = false
     
     
     init?(map: Map) {
@@ -49,18 +49,8 @@ struct Story : Mappable {
         id              <- map["id"]
         ga_prefix       <- map["ga_prefix"]
         title           <- map["title"]
+        multipic        <- map["multipic"]
     }
 }
 
-struct HomeSection {
-    var items : [Item]
-}
-extension HomeSection : SectionModelType {
-    typealias Item = Story
-
-    init(original: HomeSection, items: [HomeSection.Item]) {
-        self = original
-        self.items = items
-    }
-}
 
