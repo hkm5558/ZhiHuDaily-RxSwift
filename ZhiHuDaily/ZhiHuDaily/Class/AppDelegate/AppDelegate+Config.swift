@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SlideMenuControllerSwift
 import SwiftyBeaver
-
+import RTRootNavigationController
 let log = SwiftyBeaver.self
 
 extension AppDelegate {

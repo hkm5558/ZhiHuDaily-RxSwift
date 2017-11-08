@@ -12,11 +12,8 @@ import RxCocoa
 import NSObject_Rx
 import Closures
 import AttributedLib
-import Action
-class KMHomeViewController: UIViewController {
 
-    
-    var navBackground : UIView?
+class KMHomeViewController: UIViewController {
     
     @IBOutlet var bannerView: KMBannerView!
     
@@ -24,21 +21,12 @@ class KMHomeViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var statusBarView : UIView?
-    
-    var navAlpha = Variable<CGFloat>(0.0)
-    
     var titleSectionNum = Variable(0)
-    
     
     var titleView : KMRefreshTitleView?
     
-    
     var vm : KMHomeViewModel!
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,30 +55,7 @@ extension KMHomeViewController {
         titleView = KMRefreshTitleView(with: text)
         navigationItem.titleView = titleView
         
-        setNavigationBackgroundColor(with: Color.themeBlue)
-        
-        
-        statusBarView = UIView().then({ (v) in
-            v.frame = UIApplication.shared.statusBarFrame
-        })
-        navigationController?.view.insertSubview(statusBarView!, at: 1)
-        
-        navBackground = navigationController?.navigationBar.subviews.first
-       _ = navBackground?
-            .rx.observe(CGFloat.self, "alpha")
-            .observeOn(MainScheduler.asyncInstance)
-            .filter({ $0 != self.navAlpha.value })
-            .subscribe(onNext: { [unowned self] (alpha) in
-                self.navBackground?.alpha = self.navAlpha.value
-            })
-            .disposed(by: rx.disposeBag)
-        
-        navAlpha
-            .asObservable()
-            .subscribe(onNext: { [unowned self] (alpha) in
-               self.navBackground?.alpha = alpha
-            })
-            .disposed(by: rx.disposeBag)
+        navigationController?.navigationBar.km_color = Color.themeBlue
         
         titleSectionNum
             .asObservable()
@@ -128,6 +93,7 @@ extension KMHomeViewController {
                     arr.insert(arr.last!, at: 0)
                     arr.append(arr[1])
                     self.bannerView.top_stories.value = arr
+                    self.bannerView.startScroll()
                     self.pageControl.numberOfPages = top_stories.count
                     self.titleView?.endRefresh()
             })
@@ -190,6 +156,10 @@ extension KMHomeViewController {
             }
             .didSelectRowAt { [unowned self] (index) in
                 self.tableView.deselectRow(at: index, animated: true)
+                let vc = KMDetailViewController()
+                self.navigationController?.pushViewController(vc, completion: {
+                    self.slideMenuController()?.removeLeftGestures()
+                })
             }
             .viewForHeaderInSection(handler: { [unowned self] (section) -> UIView? in
                 let header = self.tableView.dequeueReusableHeaderFooterView(withClass: KMHomeSectionHeaderView.self)
@@ -222,17 +192,21 @@ extension KMHomeViewController {
             .disposed(by: rx.disposeBag)
         
         offsetY
-            .map { (y) -> CGFloat in
-                var alpha = y / Config.topStoryViewHeight
-                alpha > 1.0 ? alpha = 1.0 : nil
-                alpha < 0.0 ? alpha = 0.0 : nil
-                return alpha
-            }
-            .asObservable()
-            .bind(to: self.navAlpha)
+            .map({ (y) -> CGFloat in
+            var alpha = y / Config.topStoryViewHeight
+            alpha > 1.0 ? alpha = 1.0 : nil
+            alpha < 0.0 ? alpha = 0.0 : nil
+            return alpha
+        })
+            .asDriver(onErrorJustReturn: 0)
+            .drive(onNext: { (alpha) in
+                self.navigationController?.navigationBar.km_aplha = alpha
+            })
             .disposed(by: rx.disposeBag)
         
-        let tableViewY = offsetY.map { (self.tableView, $0) }.asDriver(onErrorJustReturn: (self.tableView!, 0))
+        let tableViewY = offsetY
+            .map { (self.tableView, $0) }
+            .asDriver(onErrorJustReturn: (self.tableView!, 0))
         
         tableViewY.drive(onNext: { (tv, y) in
             if y < Config.minOffsetY {
@@ -240,23 +214,24 @@ extension KMHomeViewController {
                 return
             }
             self.titleView?.pullToRefresh(progress: -y/Config.pullToRefreshHeight)
+
+            if tv.numberOfSections > 1 {
+                let headerY = tv.rectForHeader(inSection: 1).origin.y
             
-   
-            let topStoryViewHeight = Config.topStoryViewHeight
-            let rowHeight = Config.homeRowHeight
-            let fristSectionHeight : CGFloat = topStoryViewHeight + tv.numberOfRows(inSection: 0).cgFloat * rowHeight - KStatusBarHeight
-            
-            if y > fristSectionHeight && self.navBackground?.isHidden == false {
-               self.navBackground?.isHidden = true
-                self.statusBarView?.backgroundColor = Color.themeBlue
-                tv.contentInset = UIEdgeInsetsMake(KStatusBarHeight, 0, 0, 0)
+                let bar = self.navigationController?.navigationBar
+                
+                if (y + KStatusBarHeight) > headerY && bar!.km_hidden == false {
+                    bar!.km_hidden = true
+                    bar!.km_translationY = Config.homeSectionHeight
+                    tv.contentInset = UIEdgeInsetsMake(KStatusBarHeight, 0, 0, 0)
+                }
+
+                if (y + KStatusBarHeight) < headerY && bar!.km_hidden == true {
+                    bar!.km_hidden = false
+                    bar!.km_translationY = 0.0
+                    tv.contentInset = UIEdgeInsets.zero
+                }
             }
-            if y < fristSectionHeight && self.navBackground?.isHidden == true {
-                 self.navBackground?.isHidden = false
-                self.statusBarView?.backgroundColor = UIColor.clear
-                tv.contentInset = UIEdgeInsets.zero
-            }
-            self.titleView?.isHidden = (self.navBackground?.isHidden)!
         })
             .disposed(by: rx.disposeBag)
     }

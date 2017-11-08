@@ -31,7 +31,6 @@ class KMBannerView: UICollectionView {
             $0.minimumLineSpacing = 0.0
         }
         setCollectionViewLayout(layout, animated: true)
-//        layoutIfNeeded()
         contentOffset.x = KScreenW
         top_stories
             .asObservable()
@@ -39,8 +38,11 @@ class KMBannerView: UICollectionView {
                 row, model, cell in
                 cell.imageView.kf.setImage(with: URL.init(string: model.image!), placeholder: R.image.field_Mask_Bg())
                 cell.titleLabel.text = model.title
-            }.disposed(by: rx.disposeBag)
-        rx.setDelegate(self).disposed(by: rx.disposeBag)
+            }
+            .disposed(by: rx.disposeBag)
+        rx
+            .setDelegate(self)
+            .disposed(by: rx.disposeBag)
         
         offsetY
             .asDriver()
@@ -62,17 +64,29 @@ class KMBannerView: UICollectionView {
             .disposed(by: rx.disposeBag)
     }
 }
-
+extension KMBannerView {
+    func startScroll() {
+        _ = Timer.runThisEvery(seconds: 10) { [unowned self] (_) in
+            self.scrollToNext()
+        }
+    }
+    fileprivate func scrollToNext() {
+        let point = CGPoint(x: contentOffset.x + frame.size.width, y: 0)
+        setContentOffset(point, animated: true)
+    }
+}
 
 
 extension KMBannerView : UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if top_stories.value.count == 0 { return }
+        
         if scrollView.contentOffset.x == (top_stories.value.count - 1).cgFloat * KScreenW {
             scrollView.contentOffset.x = KScreenW
         }else if scrollView.contentOffset.x == 0 {
             scrollView.contentOffset.x = (top_stories.value.count - 2).cgFloat * KScreenW
         }
-        log.debug("\(scrollView.contentOffset.x)")
         let index = Int(scrollView.contentOffset.x / KScreenW ) - 1
         bannerDelegate?.scrollTo(index: index)
     }

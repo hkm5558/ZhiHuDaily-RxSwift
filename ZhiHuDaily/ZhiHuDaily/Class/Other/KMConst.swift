@@ -39,7 +39,7 @@ struct Color {
 
 struct Config {
     static let homeRowHeight : CGFloat = 90.0
-    static let homeSectionHeight : CGFloat  = 38.0
+    static let homeSectionHeight : CGFloat  = 44.0
     static let topStoryViewHeight : CGFloat  = 200.0
     static let pullToRefreshHeight : CGFloat = 64.0
     static let minOffsetY : CGFloat = -150
