@@ -42,6 +42,26 @@ struct Network {
         })
     }
     
+    static func fetchNewsDetail(_ newId : Int) -> Observable<StoryDetailModel> {
+        return Observable.create({ (observer) -> Disposable in
+            kmapi
+                .rx
+                .request(.newsDesc(newId))
+                .subscribe(onSuccess: { (response) in
+                    do {
+                        let detail = try response.mapObject(StoryDetailModel.self)
+                        observer.onNext(detail)
+                        observer.onCompleted()
+                    }catch{
+                        Toast.show(with: "格式解析失败")
+                        observer.onError(error)
+                    }
+                }, onError: { (error) in
+                    observer.onError(error)
+                })
+        })
+    }
+    
     static func fetchMoreNews(with date : String) -> Observable<Stories> {
         return Observable.create({ (observer) -> Disposable in
             

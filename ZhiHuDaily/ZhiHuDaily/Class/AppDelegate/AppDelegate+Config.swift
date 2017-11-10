@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import SlideMenuControllerSwift
 import SwiftyBeaver
-import RTRootNavigationController
 let log = SwiftyBeaver.self
 
 extension AppDelegate {
@@ -24,8 +23,8 @@ extension AppDelegate {
         configTableView()
         
         initWindow()
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().shadowImage = UIImage()
     }
     
     func initWindow() {
@@ -43,7 +42,7 @@ extension AppDelegate {
         
         let menuVC = R.storyboard.kmStoryboard.kmMenuViewController()
 
-        let homeNav = UINavigationController(rootViewController: homeVC!)
+        let homeNav = KMBaseNavigationController(rootViewController: homeVC!)
         menuVC?.home = homeNav
 
 

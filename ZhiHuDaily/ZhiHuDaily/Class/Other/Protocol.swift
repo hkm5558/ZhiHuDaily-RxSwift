@@ -1,5 +1,5 @@
 //
-//  KMProtocol.swift
+//  Protocol.swift
 //  ZhiHuDaily
 //
 //  Created by KM on 2017/11/2.

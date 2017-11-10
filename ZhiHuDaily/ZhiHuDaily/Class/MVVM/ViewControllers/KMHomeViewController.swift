@@ -33,6 +33,10 @@ class KMHomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 extension KMHomeViewController {
     func setup() {
@@ -55,7 +59,8 @@ extension KMHomeViewController {
         titleView = KMRefreshTitleView(with: text)
         navigationItem.titleView = titleView
         
-        navigationController?.navigationBar.km_color = Color.themeBlue
+        km_setNavigationBarAlpha(0)
+        km_setNavigationBarBackgroundColor(Color.themeBlue)
         
         titleSectionNum
             .asObservable()
@@ -114,7 +119,7 @@ extension KMHomeViewController {
             .filter { _ in self.tableView.contentOffset.y <= -64 }
             .flatMapLatest { _ in Observable.just(()) }
         let initRefresh = Observable.just(())
-        
+    
         Observable
             .of(initRefresh, draggingRefresh)
             .merge()
@@ -156,10 +161,8 @@ extension KMHomeViewController {
             }
             .didSelectRowAt { [unowned self] (index) in
                 self.tableView.deselectRow(at: index, animated: true)
-                let vc = KMDetailViewController()
-                self.navigationController?.pushViewController(vc, completion: {
-                    self.slideMenuController()?.removeLeftGestures()
-                })
+                let story = self.vm.stories.value.item(at: index.section)?.stories?.item(at: index.row)
+                self.pushNewsDetailVC(with: story)
             }
             .viewForHeaderInSection(handler: { [unowned self] (section) -> UIView? in
                 let header = self.tableView.dequeueReusableHeaderFooterView(withClass: KMHomeSectionHeaderView.self)
@@ -200,7 +203,7 @@ extension KMHomeViewController {
         })
             .asDriver(onErrorJustReturn: 0)
             .drive(onNext: { (alpha) in
-                self.navigationController?.navigationBar.km_aplha = alpha
+                self.km_setNavigationBarAlpha(alpha)
             })
             .disposed(by: rx.disposeBag)
         
@@ -218,17 +221,17 @@ extension KMHomeViewController {
             if tv.numberOfSections > 1 {
                 let headerY = tv.rectForHeader(inSection: 1).origin.y
             
-                let bar = self.navigationController?.navigationBar
+//                let bar = self.navigationController?.navigationBar
                 
-                if (y + KStatusBarHeight) > headerY && bar!.km_hidden == false {
-                    bar!.km_hidden = true
-                    bar!.km_translationY = Config.homeSectionHeight
+                if (y + KStatusBarHeight) > headerY && self.km_navigationBarTranslationY == 0 {
+                    self.km_setNavigationBarTranslationY(-Config.homeSectionHeight)
+                    self.navigationItem.titleView?.isHidden = true
                     tv.contentInset = UIEdgeInsetsMake(KStatusBarHeight, 0, 0, 0)
                 }
 
-                if (y + KStatusBarHeight) < headerY && bar!.km_hidden == true {
-                    bar!.km_hidden = false
-                    bar!.km_translationY = 0.0
+                if (y + KStatusBarHeight) < headerY && self.km_navigationBarTranslationY == -Config.homeSectionHeight {
+                    self.km_setNavigationBarTranslationY(0)
+                    self.navigationItem.titleView?.isHidden = false
                     tv.contentInset = UIEdgeInsets.zero
                 }
             }
@@ -236,10 +239,27 @@ extension KMHomeViewController {
             .disposed(by: rx.disposeBag)
     }
 }
+//MARK: - Push
+fileprivate extension KMHomeViewController {
+    func pushNewsDetailVC(with story : Story?) {
+        if let story = story {
+            let vc = KMDetailViewController()
+            vm.stories.value.forEach({ (stories) in
+                stories.stories?.forEach({ (story) in
+                    vc.idArr.append(story.id!)
+                })
+            })
+            vc.id = story.id!
+            self.navigationController?.pushViewController(vc, completion: {
+                self.slideMenuController()?.removeLeftGestures()
+            })
+        }
+    }
+}
 
 extension KMHomeViewController : BannerDelegate {
     func selectedItem(model: Story) {
-        log.debug("\(model)")
+        pushNewsDetailVC(with: model)
     }
     func scrollTo(index: Int) {
         pageControl.currentPage = index

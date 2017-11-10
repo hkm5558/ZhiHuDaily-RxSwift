@@ -54,3 +54,36 @@ struct Story : Mappable {
 }
 
 
+struct StoryDetailModel : Mappable {
+    var css : [String]?
+    var id : Int?
+    var type : Int?
+    var images : [String]?
+    var ga_prefix : String?
+    var js : [String]?
+    var share_url : String?
+    var image : String?
+    var title : String?
+    var image_source : String?
+    var body : String?
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        css             <- map["css"]
+        id              <- map["id"]
+        type            <- map["type"]
+        images          <- map["images"]
+        ga_prefix       <- map["ga_prefix"]
+        js              <- map["js"]
+        share_url       <- map["share_url"]
+        image           <- map["image"]
+        title           <- map["title"]
+        image_source    <- map["image_source"]
+        body            <- map["body"]
+    }
+    
+}
+
