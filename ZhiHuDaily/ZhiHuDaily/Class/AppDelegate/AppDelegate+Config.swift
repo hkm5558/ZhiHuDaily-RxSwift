@@ -69,6 +69,7 @@ fileprivate extension AppDelegate {
     func adaptedIOS11() {
         if #available(iOS 11.0, *) {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+//            UIScrollView.appearance().adjustedContentInset = UIEdgeInsets.zero
             UITableView.appearance().estimatedRowHeight = 0
             UITableView.appearance().estimatedSectionFooterHeight = 0
             UITableView.appearance().estimatedSectionHeaderHeight = 0

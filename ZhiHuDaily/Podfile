@@ -23,5 +23,5 @@ target 'ZhiHuDaily' do
   pod 'Closures'
   pod 'SnapKit'
   pod 'AttributedLib'
-  pod 'ImageViewer'
+
 end

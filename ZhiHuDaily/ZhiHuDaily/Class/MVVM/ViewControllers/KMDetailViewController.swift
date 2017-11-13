@@ -11,6 +11,7 @@ import WebKit
 import RxCocoa
 import RxSwift
 import NSObject_Rx
+ 
 class KMDetailViewController: UIViewController {
 
     var contentView : KMDetailWebView!
@@ -65,7 +66,7 @@ class KMDetailViewController: UIViewController {
         
         setupUI()
         bindViewModel()
-        
+
         vm.newsId.value = id
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -173,6 +174,9 @@ fileprivate extension KMDetailViewController {
     
     func changeContentView(with willShowId : Int) {
         contentView.removeFromSuperview()
+        
+        imageArr.removeAll()
+        
         previousContentView.scrollView.delegate = self
         previousContentView.navigationDelegate = self
         contentView = previousContentView
@@ -188,8 +192,15 @@ fileprivate extension KMDetailViewController {
         scrollViewDidScroll(contentView.scrollView)
     }
  
-    func showImageViewer(with imageUrl : String) {
-        log.debug("\(imageUrl)")
+    func showImageViewer(with index : Int, imageFrame : CGRect) {
+        log.debug(" \(index)     \(imageFrame)")
+        
+        if imageArr.count - 1 > index {
+            let url = imageArr[index]
+            log.debug("\(url)")
+            
+            
+        }
     }
     
 }
@@ -277,24 +288,39 @@ extension KMDetailViewController : WKNavigationDelegate {
         if let url = navigationAction.request.url?.absoluteString {
             if url == "about:blank" {
                 decisionHandler(.allow)
+                return
             }
-            
-            if url.hasPrefix("km:imageClick:") {
+            if url.hasPrefix("km:imageClick") {
                 //图片点击
-                let imageUrl = url.replacingOccurrences(of: "km:imageClick:", with: "")
-                showImageViewer(with: imageUrl)
+                
+                let elements = url.components(separatedBy: ":km:")
+                
+                let imageIndex = elements[1].int!
+                let imageX = elements[2].cgFloat()!
+                let imageY = elements[3].cgFloat()!
+                let imageW = elements[4].cgFloat()!
+                let imageH = elements[5].cgFloat()!
+                
+                let imageFrame = CGRect(x: imageX, y: imageY, width: imageW, height: imageH)
+                showImageViewer(with: imageIndex, imageFrame: imageFrame)
+                
+                decisionHandler(.cancel)
+                return
             }
-            if url.hasPrefix("http") {
+            if url.hasPrefix("http") && navigationAction.navigationType == .linkActivated {
                 //打开浏览器
                 UIApplication.shared.openURL(navigationAction.request.url!)
+                decisionHandler(.cancel)
+                return
             }
-            decisionHandler(.cancel)
+            decisionHandler(.allow)
         }else {
            decisionHandler(.allow)
         }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
         contentView.waitView.removeFromSuperview()
         //调整下一篇文字位置
         webView.evaluateJavaScript("document.body.scrollHeight") { [weak self] (result, error) in
@@ -303,48 +329,54 @@ extension KMDetailViewController : WKNavigationDelegate {
             }
         }
         //获取图片链接
-        let getImagesJS = """
-                            function getImages(){\
-                            var objs = document.querySelectorAll(\"body img\");\
-                            var imgScr = '';\
-                            for(var i=0;i<objs.length;i++){\
-                            imgScr = imgScr + objs[i].src + '+';\
-
-                            objs[i].onclick=function(){\
-                            if(this.alt==''){\
-                                document.location=\"km:imageClick:\"+this.src;\
-                            }\
-                            };\
-                            };\
-                            return imgScr;\
-                            };
-                        """
-        webView.evaluateJavaScript(getImagesJS, completionHandler: nil)
         
+        webView.evaluateJavaScript(imageJS(), completionHandler: nil)
         
-        webView.evaluateJavaScript("getImages()") { [weak self] (result, error) in
+        //给图片添加自定义的点击标签
+        webView.evaluateJavaScript("setImage();", completionHandler: nil)
+        
+        //获取图片url数组
+        webView.evaluateJavaScript("getAllImageUrl();") { [weak self] (result, error) in
             if let resultString = result as? String {
-                self?.imageArr = resultString.components(separatedBy: "+").filter({
-                    $0.hasPrefix("http")
-                })
-                log.debug("\(self?.imageArr)")
+                let arr = resultString.components(separatedBy: ",")
+                self?.imageArr = arr
+                log.debug("\(arr)")
             }
         }
-        
-//        //图片添加点击标签
-//        let imageClickJS = """
-//                            function registerImageClickAction(){\
-//                                 var imgs = document.querySelectorAll(\"body img\");\
-//                                 var length = imgs.length;\
-//                                 for(var i=0;i<length;i++){\
-//                                 img = imgs[i];\
-//                                 img.onclick=function(){\
-//                                 window.location.href='image-preview:'+this.src}\
-//                                 }\
-//                                 }
-//                            """
-//        webView.evaluateJavaScript(imageClickJS, completionHandler: nil)
-        
     }
 }
-
+extension KMDetailViewController {
+    func imageJS() -> String {
+        return """
+                    function setImage(){\
+                    var imgs = document.getElementsByTagName(\"img\");\
+                    for (var i=0;i<imgs.length;i++){\
+                    imgs[i].setAttribute(\"onClick\",\"imageClick(\"+i+\")\");\
+                    }\
+                    }\
+                    function imageClick(i){\
+                    var rect = getImageRect(i);\
+                    var url=\"km:imageClick\"+":km:\"+i+\":km:\"+rect;\
+                    document.location = url;\
+                    }\
+                    function getImageRect(i){\
+                    var imgs = document.getElementsByTagName(\"img\");\
+                    var rect;\
+                    rect = imgs[i].getBoundingClientRect().left+\":km:\";\
+                    rect = rect+imgs[i].getBoundingClientRect().top+\":km:\";\
+                    rect = rect+imgs[i].width+\":km:\";\
+                    rect = rect+imgs[i].height;\
+                    return rect;\
+                    }\
+                    function getAllImageUrl(){\
+                    var imgs = document.getElementsByTagName(\"img\");\
+                    var urlArray = [];\
+                    for (var i=0;i<imgs.length;i++){\
+                    var src = imgs[i].src;\
+                    urlArray.push(src);\
+                    }\
+                    return urlArray.toString();\
+                    }
+            """
+    }
+}
