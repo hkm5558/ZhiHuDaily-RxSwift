@@ -79,13 +79,13 @@ fileprivate extension KMDetailWebView {
     
     func setupUI() {
         img.addSubview(maskImg)
-        
         scrollView.addSubviews([img, titleLabel, imageLabel, previousLabel, nextLabel, waitView])
         scrollView.clipsToBounds = true
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
         }
         scrollView.contentInset = UIEdgeInsets.zero
+        
         backgroundColor = .white
     }
     

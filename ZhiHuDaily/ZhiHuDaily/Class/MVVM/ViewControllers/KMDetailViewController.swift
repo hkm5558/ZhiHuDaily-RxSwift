@@ -79,6 +79,7 @@ class KMDetailViewController: UIViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
         self.slideMenuController()?.addLeftGestures()
     }
 
@@ -195,10 +196,19 @@ fileprivate extension KMDetailViewController {
     func showImageViewer(with index : Int, imageFrame : CGRect) {
         log.debug(" \(index)     \(imageFrame)")
         
-        if imageArr.count - 1 > index {
+        if imageArr.count >= index {
             let url = imageArr[index]
             log.debug("\(url)")
             
+            if index != 0 {
+                
+                let imageView = UIImageView(frame: imageFrame)
+                imageView.kf.setImage(with: URL.init(string: url))
+                contentView.addSubview(imageView)
+                KMImageViewer.show(byViewController: self, imageURL: URL.init(string: url)!, relatedView: imageView, dissmiss: {
+                    imageView.removeFromSuperview()
+                })
+            }
             
         }
     }
@@ -279,6 +289,9 @@ extension KMDetailViewController : UIScrollViewDelegate {
             }
         }
     }
+//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+//        return nil
+//    }
 }
 
 extension KMDetailViewController : WKNavigationDelegate {
@@ -302,7 +315,9 @@ extension KMDetailViewController : WKNavigationDelegate {
                 let imageH = elements[5].cgFloat()!
                 
                 let imageFrame = CGRect(x: imageX, y: imageY, width: imageW, height: imageH)
-                showImageViewer(with: imageIndex, imageFrame: imageFrame)
+                DispatchQueue.main.async {
+                    self.showImageViewer(with: imageIndex, imageFrame: imageFrame)
+                }
                 
                 decisionHandler(.cancel)
                 return
@@ -343,6 +358,15 @@ extension KMDetailViewController : WKNavigationDelegate {
                 log.debug("\(arr)")
             }
         }
+        
+        //禁止放大缩小
+        let scalableJs = """
+                    var script = document.createElement('meta');
+                    script.name = 'viewport';
+                    script.content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\";
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                """
+        webView.evaluateJavaScript(scalableJs, completionHandler: nil)
     }
 }
 extension KMDetailViewController {

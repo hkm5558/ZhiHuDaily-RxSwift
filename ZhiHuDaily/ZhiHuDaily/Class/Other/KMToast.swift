@@ -15,7 +15,6 @@ struct Toast {
     
     
     static func show(with text:String) {
-        
         let toastView = CFNotifyView.toastWith(text: text,
                                                theme: .info(.dark))
         toastView.backgroundColor = UIColor.init(hexString: "5e7c85")

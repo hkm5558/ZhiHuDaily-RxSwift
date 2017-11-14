@@ -10,6 +10,10 @@
 		18005A1C1FAB2C6E00F1F04D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18005A1B1FAB2C6E00F1F04D /* R.generated.swift */; };
 		18005A201FAB2D2300F1F04D /* KMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18005A1F1FAB2D2300F1F04D /* KMHomeViewController.swift */; };
 		18005A221FAB2D4E00F1F04D /* KMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18005A211FAB2D4E00F1F04D /* KMMenuViewController.swift */; };
+		180448821FBADDB5005AEE3B /* KMImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180448811FBADDB5005AEE3B /* KMImageViewer.swift */; };
+		180448841FBADF2B005AEE3B /* KMImageViewerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180448831FBADF2B005AEE3B /* KMImageViewerProgressView.swift */; };
+		180448871FBAEBCF005AEE3B /* ScaleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180448861FBAEBCF005AEE3B /* ScaleAnimator.swift */; };
+		180448891FBAEC18005AEE3B /* ScaleAnimatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180448881FBAEC18005AEE3B /* ScaleAnimatorCoordinator.swift */; };
 		180EEF351FAFF37100C767F0 /* KMStoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EEF341FAFF37100C767F0 /* KMStoryListCell.swift */; };
 		181BB51A1FB3EC0200A7251E /* KMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BB5191FB3EC0200A7251E /* KMProtocol.swift */; };
 		181BB51C1FB3EC8F00A7251E /* UIView+KMExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BB51B1FB3EC8F00A7251E /* UIView+KMExtension.swift */; };
@@ -45,13 +49,6 @@
 		1859E8C31FAC6019005835B0 /* ZhiHuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C21FAC6019005835B0 /* ZhiHuModel.swift */; };
 		1859E8C71FAC7095005835B0 /* KMToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C61FAC7095005835B0 /* KMToast.swift */; };
 		1859E8C91FAC77E0005835B0 /* KMHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */; };
-		18687C591FB9899E0089E1B8 /* KMImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18687C581FB9899E0089E1B8 /* KMImageViewer.swift */; };
-		18687C5B1FB992A10089E1B8 /* KMPhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18687C5A1FB992A10089E1B8 /* KMPhotoItem.swift */; };
-		18687C5D1FB9979E0089E1B8 /* KMImageViewerConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18687C5C1FB9979E0089E1B8 /* KMImageViewerConstant.swift */; };
-		18687C5F1FB99E800089E1B8 /* KMImageViewerProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18687C5E1FB99E800089E1B8 /* KMImageViewerProgressLayer.swift */; };
-		18687C611FB9A05A0089E1B8 /* KMPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18687C601FB9A05A0089E1B8 /* KMPhotoView.swift */; };
-		18687C631FB9A3740089E1B8 /* KMImageViewerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18687C621FB9A3740089E1B8 /* KMImageViewerProtocol.swift */; };
-		18687C651FB9A7950089E1B8 /* KMImageViewerKfManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18687C641FB9A7950089E1B8 /* KMImageViewerKfManager.swift */; };
 		186A4BDF1FAD58F90039AF9B /* KMRefreshTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A4BDE1FAD58F90039AF9B /* KMRefreshTitleView.swift */; };
 		186A4BE11FAD6D380039AF9B /* KMBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A4BE01FAD6D380039AF9B /* KMBannerView.swift */; };
 		186A4BE31FAD6E1D0039AF9B /* KMBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A4BE21FAD6E1D0039AF9B /* KMBannerCell.swift */; };
@@ -82,6 +79,10 @@
 		18005A1B1FAB2C6E00F1F04D /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		18005A1F1FAB2D2300F1F04D /* KMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMHomeViewController.swift; sourceTree = "<group>"; };
 		18005A211FAB2D4E00F1F04D /* KMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMMenuViewController.swift; sourceTree = "<group>"; };
+		180448811FBADDB5005AEE3B /* KMImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMImageViewer.swift; sourceTree = "<group>"; };
+		180448831FBADF2B005AEE3B /* KMImageViewerProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMImageViewerProgressView.swift; sourceTree = "<group>"; };
+		180448861FBAEBCF005AEE3B /* ScaleAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAnimator.swift; sourceTree = "<group>"; };
+		180448881FBAEC18005AEE3B /* ScaleAnimatorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAnimatorCoordinator.swift; sourceTree = "<group>"; };
 		180EEF341FAFF37100C767F0 /* KMStoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMStoryListCell.swift; sourceTree = "<group>"; };
 		181BB5191FB3EC0200A7251E /* KMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMProtocol.swift; sourceTree = "<group>"; };
 		181BB51B1FB3EC8F00A7251E /* UIView+KMExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+KMExtension.swift"; sourceTree = "<group>"; };
@@ -130,13 +131,6 @@
 		1859E8C21FAC6019005835B0 /* ZhiHuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhiHuModel.swift; sourceTree = "<group>"; };
 		1859E8C61FAC7095005835B0 /* KMToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMToast.swift; sourceTree = "<group>"; };
 		1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMHomeViewModel.swift; sourceTree = "<group>"; };
-		18687C581FB9899E0089E1B8 /* KMImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMImageViewer.swift; sourceTree = "<group>"; };
-		18687C5A1FB992A10089E1B8 /* KMPhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMPhotoItem.swift; sourceTree = "<group>"; };
-		18687C5C1FB9979E0089E1B8 /* KMImageViewerConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMImageViewerConstant.swift; sourceTree = "<group>"; };
-		18687C5E1FB99E800089E1B8 /* KMImageViewerProgressLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMImageViewerProgressLayer.swift; sourceTree = "<group>"; };
-		18687C601FB9A05A0089E1B8 /* KMPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMPhotoView.swift; sourceTree = "<group>"; };
-		18687C621FB9A3740089E1B8 /* KMImageViewerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMImageViewerProtocol.swift; sourceTree = "<group>"; };
-		18687C641FB9A7950089E1B8 /* KMImageViewerKfManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMImageViewerKfManager.swift; sourceTree = "<group>"; };
 		186A4BDE1FAD58F90039AF9B /* KMRefreshTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMRefreshTitleView.swift; sourceTree = "<group>"; };
 		186A4BE01FAD6D380039AF9B /* KMBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBannerView.swift; sourceTree = "<group>"; };
 		186A4BE21FAD6E1D0039AF9B /* KMBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMBannerCell.swift; sourceTree = "<group>"; };
@@ -172,14 +166,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180448851FBAEBAF005AEE3B /* KMImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				180448811FBADDB5005AEE3B /* KMImageViewer.swift */,
+				180448831FBADF2B005AEE3B /* KMImageViewerProgressView.swift */,
+				180448861FBAEBCF005AEE3B /* ScaleAnimator.swift */,
+				180448881FBAEC18005AEE3B /* ScaleAnimatorCoordinator.swift */,
+			);
+			path = KMImageViewer;
+			sourceTree = "<group>";
+		};
 		181BB5181FB3E92800A7251E /* KMExtension */ = {
 			isa = PBXGroup;
 			children = (
-				18687C571FB989880089E1B8 /* KMImagerViewer */,
 				181BB5191FB3EC0200A7251E /* KMProtocol.swift */,
 				181BB51B1FB3EC8F00A7251E /* UIView+KMExtension.swift */,
 				181BB51D1FB3ED1700A7251E /* UINavigationBar+KMExtension.swift */,
 				1825E3BC1FB53344006F1F32 /* KMNavigationBarTransition */,
+				180448851FBAEBAF005AEE3B /* KMImageViewer */,
 			);
 			path = KMExtension;
 			sourceTree = "<group>";
@@ -357,7 +362,6 @@
 				1859E8C61FAC7095005835B0 /* KMToast.swift */,
 				183DA8261FB15ED50003B211 /* KMTool.swift */,
 				1843BAD41FB2E29200121984 /* ZhiHuDaily-Bridging-Header.h */,
-				18687C641FB9A7950089E1B8 /* KMImageViewerKfManager.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -380,19 +384,6 @@
 				183DD5271FB29945007481B1 /* Timer+Extension.swift */,
 			);
 			path = Extenstion;
-			sourceTree = "<group>";
-		};
-		18687C571FB989880089E1B8 /* KMImagerViewer */ = {
-			isa = PBXGroup;
-			children = (
-				18687C581FB9899E0089E1B8 /* KMImageViewer.swift */,
-				18687C5A1FB992A10089E1B8 /* KMPhotoItem.swift */,
-				18687C601FB9A05A0089E1B8 /* KMPhotoView.swift */,
-				18687C5C1FB9979E0089E1B8 /* KMImageViewerConstant.swift */,
-				18687C5E1FB99E800089E1B8 /* KMImageViewerProgressLayer.swift */,
-				18687C621FB9A3740089E1B8 /* KMImageViewerProtocol.swift */,
-			);
-			path = KMImagerViewer;
 			sourceTree = "<group>";
 		};
 		18B807451FB2F68500AB917B /* Base */ = {
@@ -664,12 +655,12 @@
 				186A4BDF1FAD58F90039AF9B /* KMRefreshTitleView.swift in Sources */,
 				18B807471FB2F6DD00AB917B /* KMBaseNavigationController.swift in Sources */,
 				1859E8BF1FAC50CD005835B0 /* Network.swift in Sources */,
-				18687C5D1FB9979E0089E1B8 /* KMImageViewerConstant.swift in Sources */,
-				18687C631FB9A3740089E1B8 /* KMImageViewerProtocol.swift in Sources */,
 				183C3CFC1FAB2172006A8F39 /* KMEnum.swift in Sources */,
 				18005A1C1FAB2C6E00F1F04D /* R.generated.swift in Sources */,
 				183C3D001FAB21B4006A8F39 /* Protocol.swift in Sources */,
 				1825E3CC1FB53344006F1F32 /* UIViewController+KMNavigation.m in Sources */,
+				180448891FBAEC18005AEE3B /* ScaleAnimatorCoordinator.swift in Sources */,
+				180448871FBAEBCF005AEE3B /* ScaleAnimator.swift in Sources */,
 				1825E3CB1FB53344006F1F32 /* UINavigationController+KMNavigation.m in Sources */,
 				183C3CC41FAAFC24006A8F39 /* ViewController.swift in Sources */,
 				183C3CC21FAAFC24006A8F39 /* AppDelegate.swift in Sources */,
@@ -677,31 +668,28 @@
 				181BB51C1FB3EC8F00A7251E /* UIView+KMExtension.swift in Sources */,
 				18005A201FAB2D2300F1F04D /* KMHomeViewController.swift in Sources */,
 				1859E8BB1FAC4A1A005835B0 /* KMThemeCell.swift in Sources */,
-				18687C591FB9899E0089E1B8 /* KMImageViewer.swift in Sources */,
 				183DD5281FB29945007481B1 /* Timer+Extension.swift in Sources */,
 				18005A221FAB2D4E00F1F04D /* KMMenuViewController.swift in Sources */,
 				1859E8B91FAC49CB005835B0 /* UITableView+Extension.swift in Sources */,
 				183C3D031FAB260B006A8F39 /* AppDelegate+Config.swift in Sources */,
-				18687C5B1FB992A10089E1B8 /* KMPhotoItem.swift in Sources */,
 				1825E3CE1FB54F40006F1F32 /* KMDetailWebView.swift in Sources */,
 				181BB51A1FB3EC0200A7251E /* KMProtocol.swift in Sources */,
 				181BB51E1FB3ED1700A7251E /* UINavigationBar+KMExtension.swift in Sources */,
 				183DA8271FB15ED50003B211 /* KMTool.swift in Sources */,
-				18687C611FB9A05A0089E1B8 /* KMPhotoView.swift in Sources */,
 				1825E3C91FB53344006F1F32 /* KMSwizzleMethod.m in Sources */,
+				180448821FBADDB5005AEE3B /* KMImageViewer.swift in Sources */,
 				1825E3CA1FB53344006F1F32 /* UIImage+KMNavigation.m in Sources */,
 				1859E8C71FAC7095005835B0 /* KMToast.swift in Sources */,
 				186A4BE31FAD6E1D0039AF9B /* KMBannerCell.swift in Sources */,
 				183DA8291FB1869F0003B211 /* KMHomeSectionHeaderView.swift in Sources */,
 				1859E8BD1FAC4E76005835B0 /* API.swift in Sources */,
 				183DD52A1FB29D0A007481B1 /* KMDetailViewController.swift in Sources */,
-				18687C651FB9A7950089E1B8 /* KMImageViewerKfManager.swift in Sources */,
 				1859E8C11FAC5F86005835B0 /* Response+ObjectMapper.swift in Sources */,
+				180448841FBADF2B005AEE3B /* KMImageViewerProgressView.swift in Sources */,
 				186A4BE51FADC03E0039AF9B /* UIViewController+Extension.swift in Sources */,
 				1825E3C81FB53344006F1F32 /* KMNavigationBar.m in Sources */,
 				1859E8C31FAC6019005835B0 /* ZhiHuModel.swift in Sources */,
 				1825E3D01FB55C0F006F1F32 /* KMDetailViewModel.swift in Sources */,
-				18687C5F1FB99E800089E1B8 /* KMImageViewerProgressLayer.swift in Sources */,
 				183C3CFE1FAB2190006A8F39 /* KMConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
