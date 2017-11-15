@@ -29,5 +29,6 @@ public final class Kunmin<Base> {
 }
 
 extension UIView : KunminCompatible {}
+extension UIViewController : KunminCompatible {}
 //extension UINavigationBar : KunminCompatible {}
 

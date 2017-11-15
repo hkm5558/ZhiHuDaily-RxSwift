@@ -9,6 +9,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Theme View Controller-->
+        <scene sceneID="Z4y-zG-Upc">
+            <objects>
+                <viewController storyboardIdentifier="KMThemeViewController" id="wRc-EW-Cad" customClass="KMThemeViewController" customModule="ZhiHuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QQc-p1-B9V"/>
+                        <viewControllerLayoutGuide type="bottom" id="lUj-L6-s7E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j21-xJ-cYr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jho-3X-Aai">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="BtY-Fi-Lng">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Field_Mask_Bg" translatesAutoresizingMaskIntoConstraints="NO" id="KGj-DH-FQ0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="KGj-DH-FQ0" firstAttribute="top" secondItem="BtY-Fi-Lng" secondAttribute="top" id="6cJ-yF-ZN8"/>
+                                        <constraint firstAttribute="bottom" secondItem="KGj-DH-FQ0" secondAttribute="bottom" id="H9t-vo-qog"/>
+                                        <constraint firstAttribute="trailing" secondItem="KGj-DH-FQ0" secondAttribute="trailing" id="cCC-fh-seU"/>
+                                        <constraint firstItem="KGj-DH-FQ0" firstAttribute="leading" secondItem="BtY-Fi-Lng" secondAttribute="leading" id="eDP-9B-zvb"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jho-3X-Aai" secondAttribute="trailing" id="4dO-8v-ite"/>
+                            <constraint firstItem="Jho-3X-Aai" firstAttribute="top" secondItem="j21-xJ-cYr" secondAttribute="top" id="XD4-dJ-Tae"/>
+                            <constraint firstItem="Jho-3X-Aai" firstAttribute="leading" secondItem="j21-xJ-cYr" secondAttribute="leading" id="d7E-hx-xZI"/>
+                            <constraint firstItem="lUj-L6-s7E" firstAttribute="top" secondItem="Jho-3X-Aai" secondAttribute="bottom" id="twS-Ik-2OJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Jho-3X-Aai" id="FAj-NI-JBE"/>
+                        <outlet property="topImageTop" destination="6cJ-yF-ZN8" id="xsN-Oj-QSK"/>
+                        <outlet property="topImageView" destination="KGj-DH-FQ0" id="1H0-9X-2nQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hb5-na-ENH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207" y="1400"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="HXc-8Z-Rzf">
             <objects>
@@ -129,12 +180,12 @@
                                     <constraint firstAttribute="height" constant="60" id="alT-cD-fFF"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1kH-in-sl0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="1kH-in-sl0">
                                 <rect key="frame" x="0.0" y="140.5" width="225" height="466.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="rVJ-sg-2A1" customClass="KMThemeCell" customModule="ZhiHuDaily" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="225" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="KMThemeCell" rowHeight="50" id="rVJ-sg-2A1" customClass="KMThemeCell" customModule="ZhiHuDaily" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="225" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rVJ-sg-2A1" id="OCp-pm-aTW">
                                             <rect key="frame" x="0.0" y="0.0" width="225" height="50"/>
@@ -181,10 +232,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="ETj-yn-ojs" id="brP-KI-ins"/>
-                                    <outlet property="delegate" destination="ETj-yn-ojs" id="5Rp-xM-dRN"/>
-                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Menu_Mask" translatesAutoresizingMaskIntoConstraints="NO" id="dai-Q7-F51">
                                 <rect key="frame" x="0.0" y="537" width="225" height="70"/>

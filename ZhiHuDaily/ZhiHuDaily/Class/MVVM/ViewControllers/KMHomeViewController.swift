@@ -13,6 +13,10 @@ import NSObject_Rx
 import Closures
 import AttributedLib
 
+fileprivate extension Selector {
+    static let didTapLeft = #selector(KMHomeViewController.didTapLeftBarButton)
+}
+
 class KMHomeViewController: UIViewController {
     
     @IBOutlet var bannerView: KMBannerView!
@@ -61,6 +65,8 @@ extension KMHomeViewController {
         
         km_setNavigationBarAlpha(0)
         km_setNavigationBarBackgroundColor(Color.themeBlue)
+        
+        km.addLeftBarButton(R.image.home_Icon(), .didTapLeft)
         
         titleSectionNum
             .asObservable()
@@ -185,7 +191,8 @@ extension KMHomeViewController {
         let offsetY = tableView
             .rx
             .contentOffset
-            .asDriver()
+            .observeOn(MainScheduler.asyncInstance)
+            .asDriver(onErrorJustReturn: CGPoint(x: 0, y: 0))
             .map({ $0.y })
             .distinctUntilChanged()
         
@@ -251,7 +258,7 @@ fileprivate extension KMHomeViewController {
             })
             vc.id = story.id!
             self.navigationController?.pushViewController(vc, completion: {
-                self.slideMenuController()?.removeLeftGestures()
+//                self.slideMenuController()?.removeLeftGestures()
             })
         }
     }
@@ -263,5 +270,11 @@ extension KMHomeViewController : BannerDelegate {
     }
     func scrollTo(index: Int) {
         pageControl.currentPage = index
+    }
+}
+
+@objc extension KMHomeViewController {
+    func didTapLeftBarButton() {
+       slideMenuController()?.openLeft()
     }
 }

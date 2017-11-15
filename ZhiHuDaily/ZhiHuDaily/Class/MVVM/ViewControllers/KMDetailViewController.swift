@@ -11,7 +11,8 @@ import WebKit
 import RxCocoa
 import RxSwift
 import NSObject_Rx
- 
+import KSPhotoBrowser
+
 class KMDetailViewController: UIViewController {
 
     var contentView : KMDetailWebView!
@@ -72,6 +73,7 @@ class KMDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+//        self.slideMenuController()?.removeLeftGestures()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -80,7 +82,7 @@ class KMDetailViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-        self.slideMenuController()?.addLeftGestures()
+//        self.slideMenuController()?.addLeftGestures()
     }
 
 }
@@ -194,22 +196,24 @@ fileprivate extension KMDetailViewController {
     }
  
     func showImageViewer(with index : Int, imageFrame : CGRect) {
-        log.debug(" \(index)     \(imageFrame)")
+//        log.debug(" \(index)     \(imageFrame)")
         
         if imageArr.count >= index {
             let url = imageArr[index]
             log.debug("\(url)")
-            
-            if index != 0 {
-                
-                let imageView = UIImageView(frame: imageFrame)
-                imageView.kf.setImage(with: URL.init(string: url))
-                contentView.addSubview(imageView)
-                KMImageViewer.show(byViewController: self, imageURL: URL.init(string: url)!, relatedView: imageView, dissmiss: {
-                    imageView.removeFromSuperview()
-                })
+            let imageView = UIImageView(frame: imageFrame)
+            imageView.kf.setImage(with: URL.init(string: url))
+            contentView.addSubview(imageView)
+            let photoItem = KSPhotoItem.init(sourceView: imageView, imageUrl: URL.init(string: url)!)
+            let browser = KSPhotoBrowser.init(photoItems: [photoItem], selectedIndex: 0)
+            browser.dismissalStyle = .rotation
+            browser.backgroundStyle = .blur
+            browser.loadingStyle = .determinate
+            browser.bounces = true
+            browser.dismissCallback = {
+                imageView.removeFromSuperview()
             }
-            
+            browser.show(from: self)
         }
     }
     
@@ -289,9 +293,6 @@ extension KMDetailViewController : UIScrollViewDelegate {
             }
         }
     }
-//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-//        return nil
-//    }
 }
 
 extension KMDetailViewController : WKNavigationDelegate {
@@ -355,7 +356,7 @@ extension KMDetailViewController : WKNavigationDelegate {
             if let resultString = result as? String {
                 let arr = resultString.components(separatedBy: ",")
                 self?.imageArr = arr
-                log.debug("\(arr)")
+//                log.debug("\(arr)")
             }
         }
         

@@ -31,8 +31,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 31 images.
+  /// This `R.image` struct is generated, and contains static references to 32 images.
   struct image {
+    /// Image `Back_White`.
+    static let back_White = Rswift.ImageResource(bundle: R.hostingBundle, name: "Back_White")
     /// Image `Field_Button_Highlight_Bg`.
     static let field_Button_Highlight_Bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "Field_Button_Highlight_Bg")
     /// Image `Field_Mask_Bg`.
@@ -95,6 +97,11 @@ struct R: Rswift.Validatable {
     static let menu_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Mask")
     /// Image `Menu_New`.
     static let menu_New = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_New")
+    
+    /// `UIImage(named: "Back_White", bundle: ..., traitCollection: ...)`
+    static func back_White(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.back_White, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "Field_Button_Highlight_Bg", bundle: ..., traitCollection: ...)`
     static func field_Button_Highlight_Bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -259,12 +266,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `KMBannerCell`.
     static let kmBannerCell: Rswift.ReuseIdentifier<KMBannerCell> = Rswift.ReuseIdentifier(identifier: "KMBannerCell")
     /// Reuse identifier `KMStoryListCell`.
     static let kmStoryListCell: Rswift.ReuseIdentifier<KMStoryListCell> = Rswift.ReuseIdentifier(identifier: "KMStoryListCell")
+    /// Reuse identifier `KMThemeCell`.
+    static let kmThemeCell: Rswift.ReuseIdentifier<KMThemeCell> = Rswift.ReuseIdentifier(identifier: "KMThemeCell")
     
     fileprivate init() {}
   }
@@ -337,6 +346,7 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let kmHomeViewController = StoryboardViewControllerResource<KMHomeViewController>(identifier: "KMHomeViewController")
       let kmMenuViewController = StoryboardViewControllerResource<KMMenuViewController>(identifier: "KMMenuViewController")
+      let kmThemeViewController = StoryboardViewControllerResource<KMThemeViewController>(identifier: "KMThemeViewController")
       let name = "KMStoryboard"
       
       func kmHomeViewController(_: Void = ()) -> KMHomeViewController? {
@@ -345,6 +355,10 @@ struct _R: Rswift.Validatable {
       
       func kmMenuViewController(_: Void = ()) -> KMMenuViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: kmMenuViewController)
+      }
+      
+      func kmThemeViewController(_: Void = ()) -> KMThemeViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: kmThemeViewController)
       }
       
       static func validate() throws {
@@ -360,8 +374,9 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Menu_Download") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Download' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Dark") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Dark' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Menu_Icon_Message") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Menu_Icon_Message' is used in storyboard 'KMStoryboard', but couldn't be loaded.") }
-        if _R.storyboard.kmStoryboard().kmMenuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'kmMenuViewController' could not be loaded from storyboard 'KMStoryboard' as 'KMMenuViewController'.") }
         if _R.storyboard.kmStoryboard().kmHomeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'kmHomeViewController' could not be loaded from storyboard 'KMStoryboard' as 'KMHomeViewController'.") }
+        if _R.storyboard.kmStoryboard().kmMenuViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'kmMenuViewController' could not be loaded from storyboard 'KMStoryboard' as 'KMMenuViewController'.") }
+        if _R.storyboard.kmStoryboard().kmThemeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'kmThemeViewController' could not be loaded from storyboard 'KMStoryboard' as 'KMThemeViewController'.") }
       }
       
       fileprivate init() {}

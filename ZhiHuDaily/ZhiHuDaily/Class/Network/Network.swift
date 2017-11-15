@@ -25,6 +25,7 @@ struct Network {
             kmapi
                 .rx
                 .request(.newsList)
+                .filterSuccessfulStatusCodes()
                 .subscribe(onSuccess: { (response) in
                     do {
                         let stories = try response.mapObject(Stories.self)
@@ -47,6 +48,7 @@ struct Network {
             kmapi
                 .rx
                 .request(.newsDesc(newId))
+                .filterSuccessfulStatusCodes()
                 .subscribe(onSuccess: { (response) in
                     do {
                         let detail = try response.mapObject(StoryDetailModel.self)
@@ -68,6 +70,7 @@ struct Network {
             kmapi
                 .rx
                 .request(.moreNews(date))
+                .filterSuccessfulStatusCodes()
                 .subscribe(onSuccess: { (response) in
                     do {
                         let stories = try response.mapObject(Stories.self)
@@ -77,6 +80,35 @@ struct Network {
                         Toast.show(with: "格式解析失败")
                         observer.onError(error)
                     }
+                }, onError: { (error) in
+                    observer.onError(error)
+                })
+                .disposed(by: bag)
+            
+            return Disposables.create()
+        })
+    }
+    
+    static func fetchThemeList() -> Observable<[ThemeModel]> {
+        return Observable.create({ (observer) -> Disposable in
+            
+            
+            kmapi
+                .rx
+                .request(.themeList)
+                .filterSuccessfulStatusCodes()
+                .subscribe(onSuccess: { (response) in
+                    do {
+                        let responseModel = try response.mapObject(ThemeResponseModel.self)
+                        if let themeArr = responseModel.others {
+                            observer.onNext(themeArr)
+                        }
+                        observer.onCompleted()
+                    }catch{
+                        Toast.show(with: "格式解析失败")
+                        observer.onError(error)
+                    }
+
                 }, onError: { (error) in
                     observer.onError(error)
                 })

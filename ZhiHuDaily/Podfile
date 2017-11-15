@@ -7,8 +7,9 @@ target 'ZhiHuDaily' do
   pod 'RxCocoa'
   pod 'Moya/RxSwift'
   pod 'NSObject+Rx'
+  pod 'RxDataSources'
 
-  pod 'ObjectMapper'
+  pod 'HandyJSON'
   pod 'SwifterSwift'
   pod 'Kingfisher'	
 
@@ -23,5 +24,6 @@ target 'ZhiHuDaily' do
   pod 'Closures'
   pod 'SnapKit'
   pod 'AttributedLib'
+  pod 'KSPhotoBrowser'
 
 end

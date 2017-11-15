@@ -7,28 +7,16 @@
 //
 
 import Foundation
-import ObjectMapper
+import HandyJSON
 
 
-struct Stories : Mappable {
+struct Stories : HandyJSON {
     
     var date: String?
     var stories : [Story]?
     var top_stories : [Story]?
-    
-    
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        date        <- map["date"]
-        stories     <- map["stories"]
-        top_stories <- map["top_stories"]
-    }
 }
-struct Story : Mappable {
+struct Story : HandyJSON {
     var images : [String]?
     var image : String?
     var type : Int?
@@ -36,25 +24,10 @@ struct Story : Mappable {
     var ga_prefix : String?
     var title : String?
     var multipic = false
-    
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        images          <- map["images"]
-        image           <- map["image"]
-        type            <- map["type"]
-        id              <- map["id"]
-        ga_prefix       <- map["ga_prefix"]
-        title           <- map["title"]
-        multipic        <- map["multipic"]
-    }
 }
 
 
-struct StoryDetailModel : Mappable {
+struct StoryDetailModel : HandyJSON {
     var css : [String]?
     var id : Int?
     var type : Int?
@@ -66,24 +39,17 @@ struct StoryDetailModel : Mappable {
     var title : String?
     var image_source : String?
     var body : String?
-    
-    init?(map: Map) {
-        
-    }
-    
-    mutating func mapping(map: Map) {
-        css             <- map["css"]
-        id              <- map["id"]
-        type            <- map["type"]
-        images          <- map["images"]
-        ga_prefix       <- map["ga_prefix"]
-        js              <- map["js"]
-        share_url       <- map["share_url"]
-        image           <- map["image"]
-        title           <- map["title"]
-        image_source    <- map["image_source"]
-        body            <- map["body"]
-    }
-    
+}
+
+struct ThemeResponseModel : HandyJSON {
+    var others : [ThemeModel]?
+}
+
+struct ThemeModel : HandyJSON {
+    var color : Int?
+    var thumbnail : String?
+    var description : String?
+    var id : Int?
+    var name : String?
 }
 

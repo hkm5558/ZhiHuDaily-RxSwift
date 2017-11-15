@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KMThemeCell: UITableViewCell {
+class KMThemeCell: UITableViewCell  {
 
     
     @IBOutlet var nameLabel: UILabel!
@@ -29,6 +29,19 @@ class KMThemeCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
+        if selected {
+            nameLabel.font = Font.bold(size: 15)
+            nameLabel.textColor = .white
+            contentView.backgroundColor = UIColor.init(hexString: "1D2328")
+            homeIcon.image = R.image.menu_Icon_Home_Highlight()
+        }else {
+            nameLabel.font = Font.size(size: 15)
+            nameLabel.textColor = UIColor.init(hexString: "95999D")
+            contentView.backgroundColor = UIColor.clear
+            homeIcon.image = R.image.menu_Icon_Home()
+        }
+        
     }
 
 }
