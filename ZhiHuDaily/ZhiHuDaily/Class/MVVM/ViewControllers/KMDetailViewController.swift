@@ -73,6 +73,7 @@ class KMDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        slideMenuController()?.leftPanGesture?.isEnabled = false
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -198,10 +199,9 @@ fileprivate extension KMDetailViewController {
         
         if imageArr.count >= index {
             let url = imageArr[index]
-            log.debug("\(url)")
+//            log.debug("\(url)")
             let imageView = UIImageView(frame: imageFrame)
             imageView.yy_setImage(with: URL.init(string: url), placeholder: nil)
-//            imageView.kf.setImage(with: URL.init(string: url))
             contentView.addSubview(imageView)
             let photoItem = KSPhotoItem.init(sourceView: imageView, imageUrl: URL.init(string: url)!)
             let browser = KSPhotoBrowser.init(photoItems: [photoItem], selectedIndex: 0)

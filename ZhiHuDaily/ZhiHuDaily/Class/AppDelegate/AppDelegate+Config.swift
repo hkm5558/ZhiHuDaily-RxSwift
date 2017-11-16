@@ -35,7 +35,7 @@ extension AppDelegate {
         SlideMenuOptions.contentViewOpacity = 0.0
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
-//        SlideMenuOptions.leftBezelWidth = UIScreen.main.bounds.width/4.0
+        SlideMenuOptions.leftBezelWidth = UIScreen.main.bounds.width/4
         
         
         let homeVC = R.storyboard.kmStoryboard.kmHomeViewController()
