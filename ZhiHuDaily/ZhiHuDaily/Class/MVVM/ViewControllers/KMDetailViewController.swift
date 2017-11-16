@@ -12,7 +12,7 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 import KSPhotoBrowser
-
+import YYWebImage
 class KMDetailViewController: UIViewController {
 
     var contentView : KMDetailWebView!
@@ -73,7 +73,6 @@ class KMDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
-//        self.slideMenuController()?.removeLeftGestures()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -82,7 +81,6 @@ class KMDetailViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-//        self.slideMenuController()?.addLeftGestures()
     }
 
 }
@@ -202,7 +200,8 @@ fileprivate extension KMDetailViewController {
             let url = imageArr[index]
             log.debug("\(url)")
             let imageView = UIImageView(frame: imageFrame)
-            imageView.kf.setImage(with: URL.init(string: url))
+            imageView.yy_setImage(with: URL.init(string: url), placeholder: nil)
+//            imageView.kf.setImage(with: URL.init(string: url))
             contentView.addSubview(imageView)
             let photoItem = KSPhotoItem.init(sourceView: imageView, imageUrl: URL.init(string: url)!)
             let browser = KSPhotoBrowser.init(photoItems: [photoItem], selectedIndex: 0)

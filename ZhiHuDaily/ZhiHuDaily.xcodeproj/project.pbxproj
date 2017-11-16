@@ -13,7 +13,7 @@
 		180EEF351FAFF37100C767F0 /* KMStoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180EEF341FAFF37100C767F0 /* KMStoryListCell.swift */; };
 		181BB51A1FB3EC0200A7251E /* KMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BB5191FB3EC0200A7251E /* KMProtocol.swift */; };
 		181BB51C1FB3EC8F00A7251E /* UIView+KMExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BB51B1FB3EC8F00A7251E /* UIView+KMExtension.swift */; };
-		181BB51E1FB3ED1700A7251E /* UINavigationBar+KMExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BB51D1FB3ED1700A7251E /* UINavigationBar+KMExtension.swift */; };
+		182534561FBD1DB200EC7340 /* KMThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182534551FBD1DB200EC7340 /* KMThemeViewModel.swift */; };
 		1825E3C81FB53344006F1F32 /* KMNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825E3BE1FB53344006F1F32 /* KMNavigationBar.m */; };
 		1825E3C91FB53344006F1F32 /* KMSwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825E3C01FB53344006F1F32 /* KMSwizzleMethod.m */; };
 		1825E3CA1FB53344006F1F32 /* UIImage+KMNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825E3C21FB53344006F1F32 /* UIImage+KMNavigation.m */; };
@@ -81,7 +81,7 @@
 		180EEF341FAFF37100C767F0 /* KMStoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMStoryListCell.swift; sourceTree = "<group>"; };
 		181BB5191FB3EC0200A7251E /* KMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMProtocol.swift; sourceTree = "<group>"; };
 		181BB51B1FB3EC8F00A7251E /* UIView+KMExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+KMExtension.swift"; sourceTree = "<group>"; };
-		181BB51D1FB3ED1700A7251E /* UINavigationBar+KMExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+KMExtension.swift"; sourceTree = "<group>"; };
+		182534551FBD1DB200EC7340 /* KMThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMThemeViewModel.swift; sourceTree = "<group>"; };
 		1825E3BD1FB53344006F1F32 /* KMNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMNavigationBar.h; sourceTree = "<group>"; };
 		1825E3BE1FB53344006F1F32 /* KMNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMNavigationBar.m; sourceTree = "<group>"; };
 		1825E3BF1FB53344006F1F32 /* KMSwizzleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMSwizzleMethod.h; sourceTree = "<group>"; };
@@ -169,7 +169,6 @@
 			children = (
 				181BB5191FB3EC0200A7251E /* KMProtocol.swift */,
 				181BB51B1FB3EC8F00A7251E /* UIView+KMExtension.swift */,
-				181BB51D1FB3ED1700A7251E /* UINavigationBar+KMExtension.swift */,
 				18DC83AB1FBC3CD3006ACB04 /* UIViewController+KMExtension.swift */,
 				1825E3BC1FB53344006F1F32 /* KMNavigationBarTransition */,
 			);
@@ -314,6 +313,7 @@
 				1859E8C81FAC77E0005835B0 /* KMHomeViewModel.swift */,
 				1825E3CF1FB55C0F006F1F32 /* KMDetailViewModel.swift */,
 				1831EC371FBC127900F1C588 /* KMMeunViewModel.swift */,
+				182534551FBD1DB200EC7340 /* KMThemeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -560,7 +560,6 @@
 				"${BUILT_PRODUCTS_DIR}/AttributedLib/AttributedLib.framework",
 				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
 				"${BUILT_PRODUCTS_DIR}/Closures/Closures.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/KSPhotoBrowser/KSPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -569,7 +568,6 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -586,7 +584,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AttributedLib.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Closures.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KSPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -595,7 +592,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -656,6 +652,7 @@
 				186A4BDF1FAD58F90039AF9B /* KMRefreshTitleView.swift in Sources */,
 				1831EC381FBC127900F1C588 /* KMMeunViewModel.swift in Sources */,
 				18B807471FB2F6DD00AB917B /* KMBaseNavigationController.swift in Sources */,
+				182534561FBD1DB200EC7340 /* KMThemeViewModel.swift in Sources */,
 				18DC83AA1FBC33F1006ACB04 /* KMThemeViewController.swift in Sources */,
 				1859E8BF1FAC50CD005835B0 /* Network.swift in Sources */,
 				183C3CFC1FAB2172006A8F39 /* KMEnum.swift in Sources */,
@@ -676,7 +673,6 @@
 				183C3D031FAB260B006A8F39 /* AppDelegate+Config.swift in Sources */,
 				1825E3CE1FB54F40006F1F32 /* KMDetailWebView.swift in Sources */,
 				181BB51A1FB3EC0200A7251E /* KMProtocol.swift in Sources */,
-				181BB51E1FB3ED1700A7251E /* UINavigationBar+KMExtension.swift in Sources */,
 				183DA8271FB15ED50003B211 /* KMTool.swift in Sources */,
 				1825E3C91FB53344006F1F32 /* KMSwizzleMethod.m in Sources */,
 				1825E3CA1FB53344006F1F32 /* UIImage+KMNavigation.m in Sources */,

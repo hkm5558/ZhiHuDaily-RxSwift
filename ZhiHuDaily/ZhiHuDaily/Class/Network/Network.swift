@@ -91,8 +91,6 @@ struct Network {
     
     static func fetchThemeList() -> Observable<[ThemeModel]> {
         return Observable.create({ (observer) -> Disposable in
-            
-            
             kmapi
                 .rx
                 .request(.themeList)
@@ -114,6 +112,29 @@ struct Network {
                 })
                 .disposed(by: bag)
             
+            return Disposables.create()
+        })
+    }
+    
+    static func fetchThemeStories(with id : Int) -> Observable<ThemeStoriesModel> {
+        return Observable.create({ (observer) -> Disposable in
+            kmapi
+                .rx
+                .request(.themeDesc(id))
+                .filterSuccessfulStatusCodes()
+                .subscribe(onSuccess: { (response) in
+                    do {
+                        let themeStoriesModel = try response.mapObject(ThemeStoriesModel.self)
+                        observer.onNext(themeStoriesModel)
+                        observer.onCompleted()
+                    }catch{
+                        Toast.show(with: "格式解析失败")
+                        observer.onError(error)
+                    }
+                }, onError: { (error) in
+                    observer.onError(error)
+                })
+            .disposed(by: bag)
             return Disposables.create()
         })
     }

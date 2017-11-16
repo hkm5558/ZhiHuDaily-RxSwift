@@ -7,7 +7,6 @@ target 'ZhiHuDaily' do
   pod 'RxCocoa'
   pod 'Moya/RxSwift'
   pod 'NSObject+Rx'
-  pod 'RxDataSources'
 
   pod 'HandyJSON'
   pod 'SwifterSwift'

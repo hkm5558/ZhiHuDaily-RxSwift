@@ -10,7 +10,6 @@ import UIKit
 import Then
 import RxCocoa
 import RxSwift
-import RxDataSources
 import NSObject_Rx
 class KMMenuViewController: UIViewController {
 
@@ -18,6 +17,8 @@ class KMMenuViewController: UIViewController {
     var home : UINavigationController!
     
     let vm = KMMeunViewModel()
+    
+    var selectID : Int = -1
     
     @IBOutlet var themeList: UITableView!
     
@@ -68,12 +69,19 @@ extension KMMenuViewController {
                 if !(self.slideMenuController()!.mainViewController!.isEqual(self.home)) {
                     self.slideMenuController()!.changeMainViewController(self.home, close: true)
                 }
+                self.selectID = -1
             }else {
-                let vc = R.storyboard.kmStoryboard.kmThemeViewController()!
-                vc.themeModel = self.vm.themeArr.value.item(at: indexPath.row)
-                let nav = KMBaseNavigationController(rootViewController: vc)
-                
-                self.slideMenuController()!.changeMainViewController(nav, close: true)
+                if let themeModel = self.vm.themeArr.value.item(at: indexPath.row){
+                    if self.selectID == themeModel.id {
+                        self.slideMenuController()?.closeLeft()
+                        return
+                    }
+                    self.selectID = themeModel.id!
+                    let vc = R.storyboard.kmStoryboard.kmThemeViewController()!
+                    vc.themeModel = themeModel
+                    let nav = KMBaseNavigationController(rootViewController: vc)
+                    self.slideMenuController()!.changeMainViewController(nav, close: true)
+                }
             }
         }).disposed(by: rx.disposeBag)
         

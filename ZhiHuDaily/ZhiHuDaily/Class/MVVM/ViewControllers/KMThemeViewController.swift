@@ -22,9 +22,12 @@ class KMThemeViewController: UIViewController {
     
     var titleView : KMRefreshTitleView?
     
-    @IBOutlet var topImageView: UIImageView!
+    let vm = KMThemeViewModel()
     
-    @IBOutlet var topImageTop: NSLayoutConstraint!
+    @IBOutlet var topImageView: UIImageView!
+    @IBOutlet var topImageHeight: NSLayoutConstraint!
+    
+
     
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -34,31 +37,33 @@ class KMThemeViewController: UIViewController {
         avoidAutomaticDown64()
         bindNavigation()
         bindTableView()
+        bindViewModel()
         view.backgroundColor = UIColor.CSS.darkSeaGreen
         
         if let imageURL = themeModel.thumbnail {
             topImageView.kf.setImage(with: URL.init(string: imageURL), placeholder: R.image.field_Mask_Bg())
         }
-        let effView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .light))
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 
 extension KMThemeViewController {
     func bindNavigation() {
-        let text = themeModel.name!.at.attributed {
-            return $0
-                .font(Font.bold(size: 15))
-                .foreground(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-                .alignment(.center)
-        }
-        titleView = KMRefreshTitleView(with: text)
-        navigationItem.titleView = titleView
+        km.setTitle(themeModel.name)
         km_setNavigationBarAlpha(0)
         km.addLeftBarButton(R.image.back_White(), .didTapLeft)
-        
     }
     func bindTableView() {
         
+        tableView.rowHeight = Config.homeRowHeight
+        tableView.separatorColor = #colorLiteral(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15)
+        tableView.layoutMargins = UIEdgeInsetsMake(0, 15, 0, 15)
+        tableView.contentInset = UIEdgeInsetsMake(KNavHeight, 0, 0, 0)
+        topImageHeight.constant = KNavHeight
         let offsetY = tableView
             .rx
             .contentOffset
@@ -69,16 +74,77 @@ extension KMThemeViewController {
         offsetY
             .asDriver(onErrorJustReturn: 0)
             .drive(onNext: { (y) in
-            
-            if y < -100 {
-                self.tableView.contentOffset = CGPoint(x: 0, y: -100)
+
+            let minY = -100 + -(KNavHeight)
+                
+            if y < minY {
+                self.tableView.contentOffset = CGPoint(x: 0, y: minY)
                 return
             }
             
-            if y <= 0 {
-                self.topImageTop.constant = y
+            if y <= -KNavHeight {
+                self.topImageHeight.constant = -y
             }
         }).disposed(by: rx.disposeBag)
+        
+        tableView
+            .rx
+            .setDelegate(self)
+            .disposed(by: rx.disposeBag)
+        vm
+            .stories
+            .asDriver()
+            .map { $0.stories ?? [] }
+            .drive(tableView.rx.items(cellIdentifier: "KMStoryListCell", cellType: KMStoryListCell.self)){
+                row, model, cell in
+                cell.bindStoryModel(with: model)
+            }
+            .disposed(by: rx.disposeBag)
+        tableView
+            .rx
+            .itemSelected
+            .subscribe(onNext: { (indexPath) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+                let story = self.vm.stories.value.stories?.item(at: indexPath.row)
+                self.pushNewsDetailVC(with: story)
+        })
+            .disposed(by: rx.disposeBag)
+    }
+    func bindViewModel() {
+
+        vm
+            .stories
+            .asObservable()
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { (model) in
+                self.tableView.reloadData()
+            })
+            .disposed(by: rx.disposeBag)
+        
+        vm.themeId.value = themeModel.id!
+
+    }
+    
+}
+
+fileprivate extension KMThemeViewController {
+    func pushNewsDetailVC(with story : Story?) {
+        if let story = story {
+            let vc = KMDetailViewController()
+            vm.stories.value.stories!.forEach({ (story) in
+                vc.idArr.append(story.id!)
+            })
+            vc.id = story.id!
+            self.navigationController?.pushViewController(vc, completion: {
+                //                self.slideMenuController()?.removeLeftGestures()
+            })
+        }
+    }
+}
+
+extension KMThemeViewController : UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
     }
 }
 

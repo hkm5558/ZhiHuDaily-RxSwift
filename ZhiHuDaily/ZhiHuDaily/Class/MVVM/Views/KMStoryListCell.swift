@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class KMStoryListCell: UITableViewCell {
+class KMStoryListCell: UITableViewCell  {
 
     @IBOutlet var titleLbl: UILabel!
     @IBOutlet var imgView: UIImageView!
@@ -27,8 +27,8 @@ class KMStoryListCell: UITableViewCell {
     
     func bindStoryModel(with model : Story) {
         titleLbl.text = model.title
-        morePicView.isHidden = !model.multipic
         imgView.isHidden = (model.images == nil)
+        morePicView.isHidden = !model.multipic || imgView.isHidden
         titleRight.constant = (model.images == nil) ? 15 : 105
         if model.images != nil {
             imgView?.kf.setImage(with: URL.init(string: (model.images?.first!)!), placeholder: R.image.field_Mask_Bg())

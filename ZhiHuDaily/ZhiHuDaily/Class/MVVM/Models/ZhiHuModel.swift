@@ -53,3 +53,19 @@ struct ThemeModel : HandyJSON {
     var name : String?
 }
 
+struct ThemeStoriesModel : HandyJSON {
+    var description : String?
+    var background : String?
+    var color : Int?
+    var name : String?
+    var image : String?
+    var image_source : String?
+    var editors : [editor]?
+    var stories : [Story]?
+    
+}
+struct editor : HandyJSON {
+    var id : Int?
+    var avatar : String?
+    var name : String?
+}

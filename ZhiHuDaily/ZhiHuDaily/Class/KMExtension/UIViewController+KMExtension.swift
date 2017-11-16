@@ -26,4 +26,12 @@ public extension Kunmin where Base : UIViewController {
         let barButton = UIBarButtonItem(customView: button)
         self.base.navigationItem.leftBarButtonItem = barButton
     }
+    func setTitle(_ text:String?, _ textColor:UIColor = .white, _ font:UIFont = UIFont.systemFont(ofSize: 15)) {
+        let label = UILabel(frame: CGRect.zero)
+        label.text = text
+        label.font = font
+        label.textColor = textColor
+        label.sizeToFit()
+        self.base.navigationItem.titleView = label
+    }
 }
